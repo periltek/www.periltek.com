@@ -9,9 +9,7 @@
 	<link href="http://fonts.googleapis.com/css?family=Abel" rel="stylesheet" type="text/css" />
 
 	<style type="text/css">
-		/* --- Inherit identical core CSS from index/projects template --- */
-
-		/* Reset & core */
+		/* --- Core CSS --- */
 		body, html {
 			margin: 0;
 			padding: 0;
@@ -29,7 +27,7 @@
 				text-decoration: underline;
 			}
 
-		/* Background with watermark */
+		/* Wrapper & watermark */
 		#wrapper {
 			width: 960px;
 			margin: 0 auto;
@@ -100,14 +98,14 @@
 				display: block;
 				padding: 0 40px;
 				font-size: 20px;
-				color: #FFFFFF;
+				color: #fff;
 			}
 
 				#menu a:hover, #menu .current_page_item a {
 					color: #FF7637;
 				}
 
-		/* Three-column top summary */
+		/* Three-column section */
 		#three-columns {
 			overflow: hidden;
 			width: 960px;
@@ -115,16 +113,16 @@
 			border-bottom: 1px solid #292929;
 		}
 
-			#three-columns #column1, #three-columns #column2, #three-columns #column3 {
+			#three-columns > div {
 				float: left;
 				width: 290px;
 				margin-right: 40px;
 			}
 
-			#three-columns #column3 {
-				float: right;
-				margin-right: 0;
-			}
+				#three-columns > div:last-child {
+					float: right;
+					margin-right: 0;
+				}
 
 			#three-columns h2 {
 				font-size: 1.8em;
@@ -138,30 +136,18 @@
 			padding: 5px 15px;
 			background: #FF7637;
 			border-radius: 10px;
-			color: #FFFFFF;
+			color: #fff;
 		}
 
 			.link-style:hover {
 				background: #ff884e;
 			}
 
-		/* Welcome */
-		#welcome {
-			width: 960px;
-			margin: 0 auto;
-			padding: 30px 0;
-			border-bottom: 1px solid #292929;
+		/* Content & Sidebar */
+		#page {
+			overflow: hidden;
 		}
 
-			#welcome h2 a {
-				color: #FF7637;
-			}
-
-			#welcome .entry p {
-				color: #ccc;
-			}
-
-		/* Content area */
 		#content {
 			float: right;
 			width: 620px;
@@ -170,15 +156,10 @@
 			color: #fff;
 		}
 
-		.entry p {
-			color: #ccc;
-		}
-
-		/* Sidebar (expandable menu) */
 		#sidebar {
 			float: left;
 			width: 280px;
-			padding: 30px 0 0px 0;
+			padding: 30px 0 0 0;
 		}
 
 		.expandable ul {
@@ -242,7 +223,53 @@
 					color: #000;
 				}
 
-		/* Layout fix */
+		/* Devlog articles menu */
+		#devlog-menu {
+			margin-bottom: 20px;
+		}
+
+		.article-item {
+			margin-bottom: 10px;
+		}
+
+			.article-item h3 {
+				cursor: pointer;
+				background: rgba(50,50,50,0.6);
+				padding: 8px;
+				border-radius: 6px;
+				margin: 0;
+			}
+
+		.article-content {
+			display: none;
+			padding: 8px;
+			background: rgba(20,20,20,0.7);
+			border-radius: 6px;
+			margin-top: 2px;
+		}
+
+		/* Password-protected form */
+		#beta-form {
+			display: none;
+			margin-top: 10px;
+			padding: 10px;
+			background: rgba(50,50,50,0.6);
+			border-radius: 6px;
+		}
+
+			#beta-form input, #beta-form textarea {
+				width: 95%;
+				margin-bottom: 10px;
+				padding: 5px;
+			}
+
+		#beta-error {
+			color: #FF5555;
+			display: none;
+			margin-top: 5px;
+		}
+
+		/* Clearfix */
 		.clearfix::after {
 			content: "";
 			display: block;
@@ -267,6 +294,7 @@
 
 	<script>
 		document.addEventListener("DOMContentLoaded", function () {
+			// Expandable sidebar menu
 			const items = document.querySelectorAll(".expandable li.has-sub");
 			items.forEach(item => {
 				item.addEventListener("click", function (e) {
@@ -274,10 +302,41 @@
 					this.classList.toggle("active");
 				});
 			});
+
+			// Devlog articles menu
+			const articles = document.querySelectorAll(".article-item h3");
+			articles.forEach(header => {
+				header.addEventListener("click", function () {
+					this.nextElementSibling.style.display =
+						this.nextElementSibling.style.display === "block" ? "none" : "block";
+				});
+			});
+
+			// Beta form password logic
+			const submitBtn = document.getElementById("beta-submit");
+			submitBtn.addEventListener("click", async function () {
+				const inputPw = document.getElementById("beta-password").value;
+				const errorMsg = document.getElementById("beta-error");
+				const formSection = document.getElementById("beta-form");
+
+				try {
+					const res = await fetch("https://gist.githubusercontent.com/periltek/9400a62c9044c45b514b829966261f02/raw/d680b468c8c002967c08458bfa8b783a65d176f0/access.json");
+					const data = await res.json();
+					if (inputPw === data.betaPasswordHash) {
+						formSection.style.display = "block";
+						errorMsg.style.display = "none";
+					} else {
+						errorMsg.style.display = "block";
+					}
+				} catch (e) {
+					errorMsg.innerText = "Error fetching password!";
+					errorMsg.style.display = "block";
+				}
+			});
 		});
 	</script>
-</head>
 
+</head>
 <body>
 	<div id="wrapper">
 		<div id="logo">
@@ -298,45 +357,56 @@
 		<div id="three-columns">
 			<div id="column1">
 				<h2>Latest Updates</h2>
-				<p>Stay informed on development milestones, newly added features, and behind-the-scenes breakthroughs across all of Periltek’s active projects.</p>
-				<p><a href="#latest" class="link-style">Read Updates</a></p>
+				<p>Stay informed on development milestones, newly added features, and behind-the-scenes breakthroughs.</p>
 			</div>
 			<div id="column2">
 				<h2>Beta Testing</h2>
-				<p>Learn about upcoming beta tests, public participation opportunities, and closed test environments for titles like <strong>The Red</strong> and <strong>Camp Red</strong>.</p>
-				<p><a href="#beta" class="link-style">View Notes</a></p>
+				<p>Participate in upcoming beta tests for titles like <strong>The Red</strong> and <strong>Camp Red</strong>.</p>
 			</div>
 			<div id="column3">
 				<h2>Team Insights</h2>
-				<p>Go inside the design process with commentary from Periltek’s developers, artists, and system engineers — our creative heartbeat.</p>
-				<p><a href="#team" class="link-style">Meet the Team</a></p>
-			</div>
-		</div>
-
-		<div id="welcome">
-			<h2 class="title"><a href="#">The Periltek Devlog</a></h2>
-			<div class="entry">
-				<p>This section of our site provides transparency into our ongoing development process — featuring update reports, technical notes, and direct team perspectives.</p>
+				<p>Go inside the design process with commentary from Periltek’s developers, artists, and system engineers.</p>
 			</div>
 		</div>
 
 		<div id="page" class="clearfix">
 			<div id="content">
-				<div class="post">
-					<h2 class="title"><a href="#">Development Log Entries</a></h2>
-					<div class="entry">
-						<h3 id="latest">Latest Updates</h3>
-						<p>Recent milestones include a complete overhaul of <strong>The Red – RRG Mobile</strong> UI framework, improved asset streaming for <strong>Camp Red</strong>, and the finalized design pipeline for <strong>Rapid Red</strong>’s vehicle physics system.</p>
-						<p>We’ve also launched internal builds for <strong>Deep Red</strong>, focusing on atmospheric rendering and terrain persistence. <strong>The Darkening</strong> pre-production assets are now being shaped to define tone and scale.</p>
-
-						<h3 id="beta">Beta Testing Notes</h3>
-						<p>Our next testing phase centers around <strong>The Red</strong> — early access participants will soon receive a public beta notification via our <a href="contact.html">contact portal</a>. Feedback channels will remain open through the integrated in-app feedback system.</p>
-						<p>For <strong>Camp Red</strong>, core system tests are progressing through closed network builds, ensuring proper synchronization and world state integrity before the open beta.</p>
-
-						<h3 id="team">Team Insights</h3>
-						<p>At Periltek Designs, every project stems from passion. Our small but dedicated team works in modular units — design, simulation, network, and narrative. Collaboration tools built in-house help us rapidly iterate and maintain creative flow.</p>
-						<p>As we expand, expect more frequent “micro-devlogs” featuring deeper dives into how we merge art, code, and storytelling into unified experiences.</p>
+				<!-- Devlog Articles Menu -->
+				<div id="devlog-menu">
+					<div class="article-item">
+						<h3>Update 1: The Red UI Overhaul</h3>
+						<div class="article-content">
+							<p>Completed full UI refresh for The Red – RRG Mobile, improving navigation and asset streaming.</p>
+						</div>
 					</div>
+					<div class="article-item">
+						<h3>Update 2: Camp Red Closed Beta</h3>
+						<div class="article-content">
+							<p>Initiated closed beta testing for Camp Red, testing synchronization and persistence systems.</p>
+						</div>
+					</div>
+					<div class="article-item">
+						<h3>Update 3: Rapid Red Vehicle Physics</h3>
+						<div class="article-content">
+							<p>Finalized vehicle physics pipeline for Rapid Red expansion.</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Beta Form -->
+				<h2>Beta Feedback & Submissions</h2>
+				<p>Enter the password to access the beta feedback form:</p>
+				<input type="password" id="beta-password" placeholder="Enter Password" />
+				<button id="beta-submit">Submit</button>
+				<div id="beta-error">Invalid password, try again.</div>
+
+				<div id="beta-form">
+					<form action="https://formspree.io/f/myzlyjjy" method="POST">
+						<input type="text" name="name" placeholder="Your Name" required=required />
+						<input type="email" name="_replyto" placeholder="Your Email" required=required />
+						<textarea name="message" placeholder="Your Feedback" rows="6" required=required></textarea>
+						<button type="submit">Send Feedback</button>
+					</form>
 				</div>
 			</div>
 
