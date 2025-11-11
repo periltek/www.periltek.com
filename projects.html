@@ -2,18 +2,18 @@
 		  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="keywords" content="Periltek Designs, game development, The Red RRG Mobile, Camp Red, Anarchy 404, Rapid Red, Deep Red, The Darkening" />
 	<meta name="description" content="Projects portfolio of Periltek Designs: The Red – RRG Mobile, Camp Red (and expansions), Rapid Red, Deep Red, The Darkening, Anarchy 404." />
-	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<title>Periltek Designs | Projects</title>
 	<link href="http://fonts.googleapis.com/css?family=Abel" rel="stylesheet" type="text/css" />
-	<style type="text/css">
-		/* (CSS same as in index.html) */
-		/* Reset and base */
+
+	<style>
 		body, html {
 			margin: 0;
 			padding: 0;
-			font-family: 'Abel', sans-serif;
+			font-family: 'Abel',sans-serif;
 			background: #0E0E0E;
 			color: #fff;
 		}
@@ -27,9 +27,9 @@
 				text-decoration: underline;
 			}
 
-		/* Wrapper with faded background image */
 		#wrapper {
-			width: 960px;
+			max-width: 960px;
+			width: 95%;
 			margin: 0 auto;
 			position: relative;
 			min-height: 100vh;
@@ -53,7 +53,6 @@
 				z-index: 1;
 			}
 
-		/* Logo */
 		#logo {
 			width: 150px;
 			height: 150px;
@@ -61,32 +60,25 @@
 			text-align: center;
 		}
 
-			#logo h1 {
-				display: none;
-			}
-
 			#logo img {
-				width: 150px;
-				height: 150px;
+				width: 100%;
+				height: auto;
 				display: block;
-				margin: 0 auto;
 			}
 
-		/* Top navigation menu */
 		#menu {
 			overflow: hidden;
-			width: 960px;
 			margin: 0 auto;
 			padding: 20px 0;
 			border-top: 1px solid #292929;
 			border-bottom: 1px solid #292929;
+			text-align: center;
 		}
 
 			#menu ul {
 				margin: 0;
 				padding: 0;
 				list-style: none;
-				text-align: center;
 			}
 
 			#menu li {
@@ -99,40 +91,41 @@
 				}
 
 			#menu a {
-				display: block;
-				padding: 0 40px;
-				font-size: 20px;
-				color: #FFFFFF;
+				display: inline-block;
+				padding: 0 20px;
+				font-size: 16px;
+				color: #fff;
 			}
 
 				#menu a:hover, #menu .current_page_item a {
 					color: #FF7637;
 				}
 
-		/* Three-column section */
 		#three-columns {
-			overflow: hidden;
-			width: 960px;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
 			padding: 30px 0;
 			border-bottom: 1px solid #292929;
 		}
 
-			#three-columns #column1, #three-columns #column2, #three-columns #column3 {
-				float: left;
-				width: 290px;
-				margin-right: 40px;
+			#three-columns > div {
+				flex: 1 1 100%;
+				margin-bottom: 20px;
 			}
 
-			#three-columns #column3 {
-				float: right;
-				margin-right: 0;
+		@media(min-width:768px) {
+			#three-columns > div {
+				flex: 0 0 30%;
+				margin-bottom: 0;
 			}
+		}
 
-			#three-columns h2 {
-				font-size: 1.8em;
-				color: #FF7637;
-				margin-bottom: 10px;
-			}
+		#three-columns h2 {
+			font-size: 1.8em;
+			color: #FF7637;
+			margin-bottom: 10px;
+		}
 
 		.link-style {
 			display: inline-block;
@@ -140,16 +133,15 @@
 			padding: 5px 15px;
 			background: #FF7637;
 			border-radius: 10px;
-			color: #FFFFFF;
+			color: #fff;
 		}
 
 			.link-style:hover {
 				background: #ff884e;
 			}
 
-		/* Welcome message */
 		#welcome {
-			width: 960px;
+			width: 100%;
 			margin: 0 auto;
 			padding: 30px 0;
 			border-bottom: 1px solid #292929;
@@ -163,28 +155,35 @@
 				color: #ccc;
 			}
 
-		/* Main content */
+		#page {
+			display: flex;
+			flex-wrap: wrap;
+			padding-top: 20px;
+		}
+
 		#content {
-			float: right;
-			width: 620px;
-			padding: 10px 0 0 0;
+			flex: 1 1 100%;
 			background: rgba(14,14,14,0.8);
-			color: #fff;
+			padding: 10px;
+			box-sizing: border-box;
 		}
 
-		.post .title a {
-			color: #FF7637;
-		}
-
-		.entry p {
-			color: #ccc;
-		}
-
-		/* Sidebar expandable menu */
 		#sidebar {
-			float: left;
-			width: 280px;
-			padding: 30px 0 0px 0;
+			flex: 0 0 280px;
+			padding: 0 0 0 0;
+			box-sizing: border-box;
+			margin-top: 20px;
+		}
+
+		@media(min-width:768px) {
+			#content {
+				flex: 1 1 calc(100% - 300px);
+				margin-top: 0;
+			}
+
+			#sidebar {
+				margin-top: 0;
+			}
 		}
 
 		.expandable ul {
@@ -248,16 +247,14 @@
 					color: #000;
 				}
 
-		/* Layout fix */
 		.clearfix::after {
 			content: "";
 			display: block;
 			clear: both;
 		}
 
-		/* Footer */
 		#footer {
-			width: 960px;
+			width: 100%;
 			margin: 0 auto;
 			padding: 15px 0 30px 0;
 			border-top: 1px solid #292929;
@@ -309,7 +306,7 @@
 			</div>
 			<div id="column2">
 				<h2>Featured Title</h2>
-				<p>Our core focus right now: <strong>The Red – RRG Mobile</strong>, an ambitious mobile app that bridges location-based exploration, narrative, and adventure in the Red River Gorge.</p>
+				<p>Our core focus right now: <strong>The Red – RRG Mobile</strong>, an ambitious mobile app bridging location-based exploration, narrative, and adventure in the Red River Gorge.</p>
 				<p><a href="https://www.RedRiverRecreations.com" target="_blank" class="link-style">Discover the App</a></p>
 			</div>
 			<div id="column3">
@@ -322,11 +319,11 @@
 		<div id="welcome">
 			<h2 class="title"><a href="#">Project Portfolio Overview</a></h2>
 			<div class="entry">
-				<p>Below you’ll find detailed summaries of the major projects currently active at Periltek Designs. Each one builds toward our vision of interactive worlds, meaningful player-experience, and creative growth.</p>
+				<p>Below you’ll find detailed summaries of the major projects currently active at Periltek Designs. Each builds toward our vision of interactive worlds, meaningful player experience, and creative growth.</p>
 			</div>
 		</div>
 
-		<div id="page" class="clearfix">
+		<div id="page">
 			<div id="content">
 				<div class="post">
 					<h2 class="title"><a href="#">Project Details</a></h2>
@@ -335,28 +332,26 @@
 						<p><strong>The Red – RRG Mobile</strong> is our flagship mobile application designed to bring the Red River Gorge to life. Features include interactive maps, live outdoor data, storytelling tied to physical location, and a community-driven layer of exploration.</p>
 
 						<h3 id="campred">Camp Red (Camping Simulator & Flagship Game)</h3>
-						<p><strong>Camp Red</strong> is our immersive camping simulation set in the Red River Gorge. It’s planned as a AAA-level experience offering realistic survival mechanics, environmental interactivity, and branching narratives.</p>
+						<p><strong>Camp Red</strong> is our immersive camping simulation set in the Red River Gorge. Planned as a AAA-level experience offering realistic survival mechanics, environmental interactivity, and branching narratives.</p>
 						<p>Expansions:</p>
 						<ul>
-							<li><strong>Swift</strong> – a storyline expansion following the treasure of John Swift’s silver mines in the Red River Gorge.</li>
-							<li><strong>Rapid Red</strong> – remote-control style expansion to Camp Red, offering RC vehicles, new terrain and challenges.</li>
-							<li><strong>Deep Red</strong> – post-cataclysmic survival simulator building on the same universe after a major event.</li>
-							<li><strong>The Darkening</strong> – a horror-experience iteration planned once the core sandbox is complete, set in the same world but focusing purely on high-tension horror.</li>
+							<li><strong>Swift</strong> – storyline expansion following John Swift’s silver mines.</li>
+							<li><strong>Rapid Red</strong> – remote-control style expansion with new terrain and challenges.</li>
+							<li><strong>Deep Red</strong> – post-cataclysmic survival simulator in the same universe.</li>
+							<li><strong>The Darkening</strong> – horror-experience iteration set in the same world.</li>
 						</ul>
 
 						<h3 id="anarchy404">Anarchy 404</h3>
-						<p><strong>Anarchy 404</strong> is an experimental project from Periltek Designs that embraces open-world chaos, emergent systems, and community-driven narratives. The concept is built around the collapse of a digital society and players emerging in the “404” zone where law, code and infrastructure have broken down.</p>
-						<p>Key facets include:</p>
+						<p><strong>Anarchy 404</strong> is an experimental project embracing open-world chaos and community-driven narratives in a collapsed digital society.</p>
 						<ul>
-							<li>Massive sandbox environment: Players navigate a shattered digital cityscape, scavenging, rebuilding and defining factions.</li>
-							<li>Emergent narrative architecture: No fixed story – players generate events, alliances, conflicts and bring meaning to the world.</li>
-							<li>Technical ambition: Dynamic world-modelling, server-scale simulation of infrastructure collapse, layered persistent world.</li>
-							<li>Community tools: Player-driven creation of factions, territories, trade and conflict systems, built-in mod / content pipelines.</li>
-							<li>Prototype status: Early stage, core engine work and simulation frameworks underway; full production planned once flagship titles move into final release phase.</li>
+							<li>Massive sandbox environment</li>
+							<li>Emergent narrative architecture</li>
+							<li>Dynamic world modelling</li>
+							<li>Community tools</li>
+							<li>Prototype status: early stage engine and framework</li>
 						</ul>
-						<p>At this time Anarchy 404 remains a visionary title – designed to expand Periltek’s reach into next-gen sandbox and persistent worlds.</p>
 
-						<p>We remain committed to innovation, ambition and quality across every title, and look forward to sharing development updates as we progress.</p>
+						<p>We remain committed to innovation, ambition, and quality across every title, and will continue sharing development updates as we progress.</p>
 					</div>
 				</div>
 			</div>
