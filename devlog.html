@@ -2,14 +2,15 @@
 		  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="keywords" content="Periltek Designs, devlog, development updates, beta testing, team insights, indie studio, game development" />
 	<meta name="description" content="Periltek Designs Devlog — featuring latest updates, beta testing notes, and insights from the development team." />
-	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<title>Periltek Designs | Devlog</title>
 	<link href="http://fonts.googleapis.com/css?family=Abel" rel="stylesheet" type="text/css" />
 
-	<style type="text/css">
-		/* --- Core CSS --- */
+	<style>
+		/* Core */
 		body, html {
 			margin: 0;
 			padding: 0;
@@ -27,9 +28,10 @@
 				text-decoration: underline;
 			}
 
-		/* Wrapper & watermark */
+		/* Wrapper */
 		#wrapper {
-			width: 960px;
+			max-width: 960px;
+			width: 95%;
 			margin: 0 auto;
 			position: relative;
 			min-height: 100vh;
@@ -62,8 +64,8 @@
 		}
 
 			#logo img {
-				width: 150px;
-				height: 150px;
+				width: 100%;
+				height: auto;
 				display: block;
 				margin: 0 auto;
 			}
@@ -71,18 +73,17 @@
 		/* Navigation */
 		#menu {
 			overflow: hidden;
-			width: 960px;
 			margin: 0 auto;
 			padding: 20px 0;
 			border-top: 1px solid #292929;
 			border-bottom: 1px solid #292929;
+			text-align: center;
 		}
 
 			#menu ul {
 				margin: 0;
 				padding: 0;
 				list-style: none;
-				text-align: center;
 			}
 
 			#menu li {
@@ -95,9 +96,9 @@
 				}
 
 			#menu a {
-				display: block;
-				padding: 0 40px;
-				font-size: 20px;
+				display: inline-block;
+				padding: 0 20px;
+				font-size: 16px;
 				color: #fff;
 			}
 
@@ -105,30 +106,33 @@
 					color: #FF7637;
 				}
 
-		/* Three-column section */
+		/* Three-column top section */
 		#three-columns {
 			overflow: hidden;
-			width: 960px;
 			padding: 30px 0;
 			border-bottom: 1px solid #292929;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
 		}
 
 			#three-columns > div {
-				float: left;
-				width: 290px;
-				margin-right: 40px;
+				flex: 1 1 100%;
+				margin-bottom: 20px;
 			}
 
-				#three-columns > div:last-child {
-					float: right;
-					margin-right: 0;
-				}
-
-			#three-columns h2 {
-				font-size: 1.8em;
-				color: #FF7637;
-				margin-bottom: 10px;
+		@media(min-width:768px) {
+			#three-columns > div {
+				flex: 0 0 30%;
+				margin-bottom: 0;
 			}
+		}
+
+		#three-columns h2 {
+			font-size: 1.8em;
+			color: #FF7637;
+			margin-bottom: 10px;
+		}
 
 		.link-style {
 			display: inline-block;
@@ -143,25 +147,39 @@
 				background: #ff884e;
 			}
 
-		/* Content & Sidebar */
+		/* Page content */
 		#page {
-			overflow: hidden;
+			display: flex;
+			flex-wrap: wrap;
+			padding-top: 20px;
 		}
 
 		#content {
-			float: right;
-			width: 620px;
-			padding: 10px 0 0 0;
+			flex: 1 1 100%;
 			background: rgba(14,14,14,0.8);
-			color: #fff;
+			padding: 10px;
+			box-sizing: border-box;
 		}
 
 		#sidebar {
-			float: left;
-			width: 280px;
-			padding: 30px 0 0 0;
+			flex: 0 0 280px;
+			padding: 0 0 0 0;
+			box-sizing: border-box;
+			margin-top: 20px;
 		}
 
+		@media(min-width:768px) {
+			#content {
+				flex: 1 1 calc(100% - 300px);
+				margin-top: 0;
+			}
+
+			#sidebar {
+				margin-top: 0;
+			}
+		}
+
+		/* Expandable sidebar */
 		.expandable ul {
 			list-style: none;
 			padding: 0;
@@ -223,32 +241,7 @@
 					color: #000;
 				}
 
-		/* Devlog articles menu */
-		#devlog-menu {
-			margin-bottom: 20px;
-		}
-
-		.article-item {
-			margin-bottom: 10px;
-		}
-
-			.article-item h3 {
-				cursor: pointer;
-				background: rgba(50,50,50,0.6);
-				padding: 8px;
-				border-radius: 6px;
-				margin: 0;
-			}
-
-		.article-content {
-			display: none;
-			padding: 8px;
-			background: rgba(20,20,20,0.7);
-			border-radius: 6px;
-			margin-top: 2px;
-		}
-
-		/* Password-protected form */
+		/* Beta form */
 		#beta-form {
 			display: none;
 			margin-top: 10px;
@@ -269,16 +262,9 @@
 			margin-top: 5px;
 		}
 
-		/* Clearfix */
-		.clearfix::after {
-			content: "";
-			display: block;
-			clear: both;
-		}
-
 		/* Footer */
 		#footer {
-			width: 960px;
+			width: 100%;
 			margin: 0 auto;
 			padding: 15px 0 30px 0;
 			border-top: 1px solid #292929;
@@ -294,21 +280,12 @@
 
 	<script>
 		document.addEventListener("DOMContentLoaded", function () {
-			// Expandable sidebar menu
+			// Expandable sidebar
 			const items = document.querySelectorAll(".expandable li.has-sub");
 			items.forEach(item => {
 				item.addEventListener("click", function (e) {
 					e.stopPropagation();
 					this.classList.toggle("active");
-				});
-			});
-
-			// Devlog articles menu
-			const articles = document.querySelectorAll(".article-item h3");
-			articles.forEach(header => {
-				header.addEventListener("click", function () {
-					this.nextElementSibling.style.display =
-						this.nextElementSibling.style.display === "block" ? "none" : "block";
 				});
 			});
 
@@ -335,8 +312,8 @@
 			});
 		});
 	</script>
-
 </head>
+
 <body>
 	<div id="wrapper">
 		<div id="logo">
@@ -369,31 +346,8 @@
 			</div>
 		</div>
 
-		<div id="page" class="clearfix">
+		<div id="page">
 			<div id="content">
-				<!-- Devlog Articles Menu -->
-				<div id="devlog-menu">
-					<div class="article-item">
-						<h3>Update 1: The Red UI Overhaul</h3>
-						<div class="article-content">
-							<p>Completed full UI refresh for The Red – RRG Mobile, improving navigation and asset streaming.</p>
-						</div>
-					</div>
-					<div class="article-item">
-						<h3>Update 2: Camp Red Closed Beta</h3>
-						<div class="article-content">
-							<p>Initiated closed beta testing for Camp Red, testing synchronization and persistence systems.</p>
-						</div>
-					</div>
-					<div class="article-item">
-						<h3>Update 3: Rapid Red Vehicle Physics</h3>
-						<div class="article-content">
-							<p>Finalized vehicle physics pipeline for Rapid Red expansion.</p>
-						</div>
-					</div>
-				</div>
-
-				<!-- Beta Form -->
 				<h2>Beta Feedback & Submissions</h2>
 				<p>Enter the password to access the beta feedback form:</p>
 				<input type="password" id="beta-password" placeholder="Enter Password" />
@@ -440,10 +394,10 @@
 				</ul>
 			</div>
 		</div>
-	</div>
 
-	<div id="footer">
-		<p>&copy; 2025 Periltek Designs. All rights reserved. Design framework adapted from <a href="https://templated.live/naturalprime/" target="_blank" rel="nofollow">Natural Prime</a>.</p>
+		<div id="footer">
+			<p>&copy; 2025 Periltek Designs. All rights reserved. Design framework adapted from <a href="https://templated.live/naturalprime/" target="_blank" rel="nofollow">Natural Prime</a>.</p>
+		</div>
 	</div>
 </body>
 </html>
