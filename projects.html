@@ -4,8 +4,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="keywords" content="Periltek Designs, projects, classified, Anarchy 404, Archonton Mathematika, game development" />
-    <meta name="description" content="Password-protected classified projects from Periltek Designs: Anarchy 404, Archonton Mathematika, and hidden Easter eggs." />
+    <meta name="keywords" content="Periltek Designs, game development, The Red RRG Mobile, Camp Red, Anarchy 404, Rapid Red, Deep Red, The Darkening, Archonton Mathematika" />
+    <meta name="description" content="Projects portfolio of Periltek Designs: The Red – RRG Mobile, Camp Red, Anarchy 404, and Classified Projects including Archonton Mathematika." />
     <title>Periltek Designs | Projects</title>
     <link href="http://fonts.googleapis.com/css?family=Abel" rel="stylesheet" type="text/css" />
 
@@ -13,7 +13,7 @@
         body, html {
             margin: 0;
             padding: 0;
-            font-family: 'Abel', sans-serif;
+            font-family: 'Abel',sans-serif;
             background: #0E0E0E;
             color: #fff;
         }
@@ -140,21 +140,6 @@
                 background: #ff884e;
             }
 
-        #welcome {
-            width: 100%;
-            margin: 0 auto;
-            padding: 30px 0;
-            border-bottom: 1px solid #292929;
-        }
-
-            #welcome h2 a {
-                color: #FF7637;
-            }
-
-            #welcome .entry p {
-                color: #ccc;
-            }
-
         #page {
             display: flex;
             flex-wrap: wrap;
@@ -247,16 +232,30 @@
                     color: #000;
                 }
 
-        #classified-password {
-            margin-top: 10px;
-            width: 90%;
-            padding: 5px;
+        #classified-section {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #292929;
         }
 
-        #classified-submit {
-            margin-top: 5px;
-            padding: 5px 10px;
-        }
+            #classified-section input {
+                width: 70%;
+                padding: 5px;
+                margin-right: 10px;
+            }
+
+            #classified-section button {
+                padding: 5px 10px;
+                background: #FF7637;
+                border: none;
+                color: #fff;
+                border-radius: 6px;
+                cursor: pointer;
+            }
+
+                #classified-section button:hover {
+                    background: #ff884e;
+                }
 
         #classified-error {
             color: #FF5555;
@@ -264,21 +263,9 @@
             margin-top: 5px;
         }
 
-        .classified-project {
-            margin-bottom: 20px;
-            background: rgba(40,40,40,0.7);
-            padding: 10px;
-            border-radius: 6px;
+        #classified-content {
+            margin-top: 15px;
         }
-
-            .classified-project h3 {
-                color: #FF7637;
-                margin-top: 0;
-            }
-
-            .classified-project ul {
-                margin: 5px 0 10px 20px;
-            }
 
         #footer {
             width: 100%;
@@ -297,7 +284,7 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            // Expandable sidebar toggle
+            // Expandable sidebar
             const items = document.querySelectorAll(".expandable li.has-sub");
             items.forEach(item => {
                 item.addEventListener("click", function (e) {
@@ -306,39 +293,53 @@
                 });
             });
 
-            // Classified Projects password logic
+            // Classified Projects password logic (matches your fetch style)
             const submitBtn = document.getElementById("classified-submit");
             submitBtn.addEventListener("click", async function () {
                 const inputPw = document.getElementById("classified-password").value;
                 const errorMsg = document.getElementById("classified-error");
-                const contentArea = document.getElementById("classified-content");
-                contentArea.innerHTML = "";
-                errorMsg.style.display = "none";
+                const contentDiv = document.getElementById("classified-content");
 
                 try {
                     const res = await fetch("https://gist.githubusercontent.com/periltek/bb8013410ecde9cc3e1c0d5e2417a9db/raw/f70f58e82e214a567245852d0209122ce0d3e415/restrictedprojects.json");
                     const data = await res.json();
+
                     if (inputPw === data.password) {
+                        errorMsg.style.display = "none";
+                        contentDiv.innerHTML = "";
                         data.projects.forEach(proj => {
-                            const projDiv = document.createElement("div");
-                            projDiv.className = "classified-project";
-                            projDiv.innerHTML = `
-                            <h3>${proj.title}</h3>
-                            <p>${proj.description}</p>
-                            <p><strong>Status:</strong> ${proj.status}</p>
-                            <p><strong>Start Date:</strong> ${proj.startDate}</p>
-                            <p><strong>Team:</strong> ${proj.team.join(", ")}</p>
-                            <p><strong>Links:</strong> ${proj.links ? Object.entries(proj.links).map(([k, v]) => `<a href="${v}" target="_blank">${k}</a>`).join(", ") : "None"}</p>
-                            ${proj.easterEggs ? `<ul><strong>Easter Eggs:</strong>${proj.easterEggs.map(e => `<li><strong>${e.name}:</strong> ${e.description}</li>`).join("")}</ul>` : ""}
-                            ${proj.references ? `<ul><strong>References:</strong>${proj.references.map(r => `<li>${r}</li>`).join("")}</ul>` : ""}
-                        `;
-                            contentArea.appendChild(projDiv);
+                            const div = document.createElement("div");
+                            div.style.marginBottom = "20px";
+
+                            let html = `<h3>${proj.title}</h3>
+                                    <p><strong>Status:</strong> ${proj.status}</p>
+                                    <p>${proj.description}</p>`;
+
+                            if (proj.team && proj.team.length) html += `<p><strong>Team:</strong> ${proj.team.join(", ")}</p>`;
+                            if (proj.links && Object.keys(proj.links).length) {
+                                html += "<p><strong>Links:</strong><ul>";
+                                for (const key in proj.links) html += `<li><a href="${proj.links[key]}" target="_blank">${key}</a></li>`;
+                                html += "</ul></p>";
+                            }
+                            if (proj.easterEggs && proj.easterEggs.length) {
+                                html += "<p><strong>Easter Eggs:</strong><ul>";
+                                proj.easterEggs.forEach(e => { html += `<li><strong>${e.name}:</strong> ${e.description}</li>`; });
+                                html += "</ul></p>";
+                            }
+                            if (proj.references && proj.references.length) {
+                                html += "<p><strong>References:</strong><ul>";
+                                proj.references.forEach(r => { html += `<li>${r}</li>`; });
+                                html += "</ul></p>";
+                            }
+
+                            div.innerHTML = html;
+                            contentDiv.appendChild(div);
                         });
                     } else {
                         errorMsg.style.display = "block";
                     }
                 } catch (e) {
-                    errorMsg.innerText = "Error fetching projects!";
+                    errorMsg.innerText = "Error fetching JSON!";
                     errorMsg.style.display = "block";
                 }
             });
@@ -366,58 +367,83 @@
         <div id="three-columns">
             <div id="column1">
                 <h2>Our Projects</h2>
-                <p>Explore our active and classified projects at Periltek Designs.</p>
+                <p>Explore our flagship titles, expansions, and innovative works in development below.</p>
                 <p><a href="about.html" class="link-style">Learn More</a></p>
             </div>
             <div id="column2">
                 <h2>Featured Title</h2>
-                <p>Current focus: <strong>The Red – RRG Mobile</strong></p>
+                <p>Core focus: <strong>The Red – RRG Mobile</strong>, an ambitious mobile app bridging exploration, narrative, and adventure.</p>
+                <p><a href="https://www.RedRiverRecreations.com" target="_blank" class="link-style">Discover the App</a></p>
             </div>
             <div id="column3">
                 <h2>Next Evolutions</h2>
-                <p>Check for hidden content by accessing the classified projects below.</p>
+                <p>Also in progress: Camp Red and its expansions, Rapid Red, Deep Red, The Darkening — and beyond.</p>
+                <p><a href="devlog.html" class="link-style">Follow Updates</a></p>
             </div>
         </div>
 
-        <div id="welcome">
-            <h2 class="title"><a href="#">Project Portfolio Overview</a></h2>
-            <div class="entry">
-                <p>Enter the password below to access the classified project dossiers and hidden lore.</p>
-                <input type="password" id="classified-password" placeholder="Enter Password" />
-                <button id="classified-submit">Submit</button>
-                <div id="classified-error">Invalid password, try again.</div>
-                <div id="classified-content"></div>
-            </div>
-        </div>
+        <div id="page">
+            <div id="content">
+                <!-- Main projects always visible -->
+                <div class="post">
+                    <h2 class="title">Project Details</h2>
+                    <div class="entry">
+                        <h3 id="thered">The Red – RRG Mobile</h3>
+                        <p>Interactive mobile app bringing the Red River Gorge to life with maps, live data, and narrative exploration.</p>
 
-        <div id="sidebar" class="expandable">
-            <ul>
-                <li class="has-sub">
-                    Projects
-                    <ul>
-                        <li><a href="projects.html#thered">The Red – RRG Mobile</a></li>
-                        <li><a href="projects.html#campred">Camp Red & Expansions</a></li>
-                        <li><a href="projects.html#anarchy404">Anarchy 404</a></li>
-                    </ul>
-                </li>
-                <li class="has-sub">
-                    Devlog
-                    <ul>
-                        <li><a href="devlog.html#latest">Latest Updates</a></li>
-                        <li><a href="devlog.html#beta">Beta Testing Notes</a></li>
-                        <li><a href="devlog.html#team">Team Insights</a></li>
-                    </ul>
-                </li>
-                <li class="has-sub">
-                    Media
-                    <ul>
-                        <li><a href="media.html#screenshots">Screenshots</a></li>
-                        <li><a href="media.html#concept">Concept Art</a></li>
-                        <li><a href="media.html#photos">Team Photos</a></li>
-                    </ul>
-                </li>
-                <li><a href="contact.html">Contact & Support</a></li>
-            </ul>
+                        <h3 id="campred">Camp Red (Camping Simulator & Flagship Game)</h3>
+                        <p>Immersive camping simulator featuring realistic survival mechanics and branching narratives.</p>
+                        <ul>
+                            <li>Swift – storyline expansion following John Swift’s silver mines</li>
+                            <li>Rapid Red – remote-control style expansion with new terrain and challenges</li>
+                            <li>Deep Red – post-cataclysmic survival simulator</li>
+                            <li>The Darkening – horror-experience iteration</li>
+                        </ul>
+
+                        <h3 id="anarchy404">Anarchy 404</h3>
+                        <p>Experimental project embracing open-world chaos and community-driven narratives.</p>
+                        <ul>
+                            <li>Massive sandbox environment</li>
+                            <li>Emergent narrative architecture</li>
+                            <li>Dynamic world modelling</li>
+                            <li>Community tools</li>
+                            <li>Prototype status: early stage engine and framework</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Classified projects moved to bottom -->
+                <div id="classified-section">
+                    <h2>Classified Projects</h2>
+                    <p>Enter the password to view:</p>
+                    <input type="password" id="classified-password" placeholder="Enter Password" />
+                    <button id="classified-submit">Submit</button>
+                    <div id="classified-error">Invalid password</div>
+                    <div id="classified-content"></div>
+                </div>
+            </div>
+
+            <div id="sidebar" class="expandable">
+                <ul>
+                    <li class="has-sub">
+                        Projects
+                        <ul>
+                            <li><a href="#thered">The Red – RRG Mobile</a></li>
+                            <li><a href="#campred">Camp Red & Expansions</a></li>
+                            <li><a href="#anarchy404">Anarchy 404</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-sub">
+                        Media
+                        <ul>
+                            <li><a href="media.html#screenshots">Screenshots</a></li>
+                            <li><a href="media.html#concept">Concept Art</a></li>
+                            <li><a href="media.html#photos">Team Photos</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contact.html">Contact & Support</a></li>
+                </ul>
+            </div>
         </div>
 
         <div id="footer">
