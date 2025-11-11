@@ -2,13 +2,14 @@
 		  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="keywords" content="Periltek Designs, game development, indie studio, The Red, RRG Mobile, Red River Gorge, game app" />
 	<meta name="description" content="Periltek Designs is a creative studio reshaping its identity through innovation and immersive design. Discover our upcoming app — The Red: RRG Mobile." />
-	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<title>Periltek Designs | The Red - RRG Mobile</title>
 	<link href="http://fonts.googleapis.com/css?family=Abel" rel="stylesheet" type="text/css" />
-	<style type="text/css">
-		/* Reset and base */
+
+	<style>
 		body, html {
 			margin: 0;
 			padding: 0;
@@ -26,9 +27,10 @@
 				text-decoration: underline;
 			}
 
-		/* Wrapper with faded background image */
+		/* Wrapper */
 		#wrapper {
-			width: 960px;
+			max-width: 960px;
+			width: 95%;
 			margin: 0 auto;
 			position: relative;
 			min-height: 100vh;
@@ -52,7 +54,7 @@
 				z-index: 1;
 			}
 
-		/* Logo section */
+		/* Logo */
 		#logo {
 			width: 150px;
 			height: 150px;
@@ -60,32 +62,28 @@
 			text-align: center;
 		}
 
-			#logo h1 {
-				display: none;
-			}
-
 			#logo img {
-				width: 150px;
-				height: 150px;
+				width: 100%;
+				height: auto;
 				display: block;
 				margin: 0 auto;
 			}
 
-		/* Top navigation menu */
+		/* Navigation */
 		#menu {
 			overflow: hidden;
-			width: 960px;
+			width: 100%;
 			margin: 0 auto;
 			padding: 20px 0;
 			border-top: 1px solid #292929;
 			border-bottom: 1px solid #292929;
+			text-align: center;
 		}
 
 			#menu ul {
 				margin: 0;
 				padding: 0;
 				list-style: none;
-				text-align: center;
 			}
 
 			#menu li {
@@ -98,36 +96,28 @@
 				}
 
 			#menu a {
-				display: block;
-				padding: 0 40px;
-				font-size: 20px;
-				color: #FFFFFF;
+				display: inline-block;
+				padding: 0 20px;
+				font-size: 16px;
+				color: #fff;
 			}
 
-				#menu a:hover,
-				#menu .current_page_item a {
+				#menu a:hover, #menu .current_page_item a {
 					color: #FF7637;
 				}
 
-		/* Three-column section */
+		/* Three-column flex layout */
 		#three-columns {
-			overflow: hidden;
-			width: 960px;
+			display: flex;
+			justify-content: space-between;
+			flex-wrap: wrap;
 			padding: 30px 0;
 			border-bottom: 1px solid #292929;
 		}
 
-			#three-columns #column1,
-			#three-columns #column2,
-			#three-columns #column3 {
-				float: left;
-				width: 290px;
-				margin-right: 40px;
-			}
-
-			#three-columns #column3 {
-				float: right;
-				margin-right: 0;
+			#three-columns > div {
+				flex: 1 1 30%;
+				margin-bottom: 20px;
 			}
 
 			#three-columns h2 {
@@ -142,17 +132,15 @@
 			padding: 5px 15px;
 			background: #FF7637;
 			border-radius: 10px;
-			color: #FFFFFF;
+			color: #fff;
 		}
 
 			.link-style:hover {
 				background: #ff884e;
 			}
 
-		/* Welcome message */
+		/* Welcome block */
 		#welcome {
-			width: 960px;
-			margin: 0 auto;
 			padding: 30px 0;
 			border-bottom: 1px solid #292929;
 		}
@@ -165,30 +153,28 @@
 				color: #ccc;
 			}
 
-		/* Main content */
+		/* Page content */
+		#page {
+			display: flex;
+			flex-wrap: wrap;
+			padding-top: 20px;
+		}
+
 		#content {
-			float: right;
-			width: 620px;
-			padding: 10px 0 0 0;
+			flex: 1 1 620px;
+			padding: 10px 20px;
 			background: rgba(14,14,14,0.8);
 			color: #fff;
+			margin-bottom: 20px;
+			border-radius: 10px;
 		}
 
-		.post .title a {
-			color: #FF7637;
-		}
-
-		.entry p {
-			color: #ccc;
-		}
-
-		/* Sidebar expandable menu */
 		#sidebar {
-			float: left;
-			width: 280px;
-			padding: 30px 0 0 0;
+			flex: 0 0 280px;
+			padding: 0 20px 0 0;
 		}
 
+		/* Expandable sidebar */
 		.expandable ul {
 			list-style: none;
 			padding: 0;
@@ -250,7 +236,7 @@
 					color: #000;
 				}
 
-		/* Layout fix */
+		/* Clearfix */
 		.clearfix::after {
 			content: "";
 			display: block;
@@ -259,8 +245,8 @@
 
 		/* Footer */
 		#footer {
-			width: 960px;
-			margin: 0 auto;
+			width: 100%;
+			margin: 40px auto 0 auto;
 			padding: 15px 0 30px 0;
 			border-top: 1px solid #292929;
 			text-align: center;
@@ -271,6 +257,37 @@
 			#footer a {
 				color: #444;
 			}
+
+		@media(max-width:768px) {
+			#three-columns {
+				flex-direction: column;
+			}
+
+				#three-columns > div {
+					margin-bottom: 20px;
+					flex: 1 1 100%;
+				}
+
+			#page {
+				flex-direction: column;
+			}
+
+			#sidebar {
+				flex: 1 1 100%;
+				margin-bottom: 20px;
+			}
+
+			#menu li {
+				display: block;
+				border-right: none;
+				margin-bottom: 5px;
+			}
+
+			#menu a {
+				padding: 10px 0;
+				display: block;
+			}
+		}
 	</style>
 
 	<script>
@@ -370,10 +387,10 @@
 				</ul>
 			</div>
 		</div>
-	</div>
 
-	<div id="footer">
-		<p>&copy; 2025 Periltek Designs. All rights reserved. Design framework by <a href="https://templated.live/naturalprime/" rel="nofollow">TEMPLATED</a>.</p>
+		<div id="footer">
+			<p>&copy; 2025 Periltek Designs. All rights reserved. Design framework by <a href="https://templated.live/naturalprime/" rel="nofollow">TEMPLATED</a>.</p>
+		</div>
 	</div>
 </body>
 </html>

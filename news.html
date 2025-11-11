@@ -2,13 +2,15 @@
 		  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="keywords" content="Periltek Designs news, game dev updates, indie studio announcements, The Red, RRG Mobile" />
 	<meta name="description" content="Stay up to date with Periltek Designs — news, development logs, and project updates for The Red: RRG Mobile and more." />
-	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<title>Periltek Designs | News & Updates</title>
 	<link href="http://fonts.googleapis.com/css?family=Abel" rel="stylesheet" type="text/css" />
 
-	<style type="text/css">
+	<style>
+		/* Core */
 		body, html {
 			margin: 0;
 			padding: 0;
@@ -26,8 +28,10 @@
 				text-decoration: underline;
 			}
 
+		/* Wrapper */
 		#wrapper {
-			width: 960px;
+			max-width: 960px;
+			width: 95%;
 			margin: 0 auto;
 			position: relative;
 			min-height: 100vh;
@@ -51,6 +55,7 @@
 				z-index: 1;
 			}
 
+		/* Logo */
 		#logo {
 			width: 150px;
 			height: 150px;
@@ -59,23 +64,24 @@
 		}
 
 			#logo img {
-				width: 150px;
-				height: 150px;
+				width: 100%;
+				height: auto;
 			}
 
+		/* Navigation */
 		#menu {
-			width: 960px;
+			width: 100%;
 			margin: 0 auto;
 			padding: 20px 0;
 			border-top: 1px solid #292929;
 			border-bottom: 1px solid #292929;
+			text-align: center;
 		}
 
 			#menu ul {
 				margin: 0;
 				padding: 0;
 				list-style: none;
-				text-align: center;
 			}
 
 			#menu li {
@@ -88,24 +94,25 @@
 				}
 
 			#menu a {
-				display: block;
-				padding: 0 40px;
-				font-size: 20px;
-				color: #FFFFFF;
+				display: inline-block;
+				padding: 0 20px; /* matches Devlog spacing */
+				font-size: 16px;
+				color: #fff;
 			}
 
-				#menu a:hover,
-				#menu .current_page_item a {
+				#menu a:hover, #menu .current_page_item a {
 					color: #FF7637;
 				}
 
+		/* Content */
 		#content {
-			width: 960px;
 			margin: 30px auto;
+			padding: 20px;
 			background: rgba(14,14,14,0.8);
-			padding: 30px;
 			border-radius: 10px;
 			box-shadow: 0 0 15px rgba(0,0,0,0.4);
+			width: 100%;
+			box-sizing: border-box;
 		}
 
 		h1.title {
@@ -134,7 +141,7 @@
 			}
 
 			.news-item h2 {
-				font-size: 1.6em;
+				font-size: 1.4em;
 				margin: 0;
 				padding-left: 30px;
 				position: relative;
@@ -165,7 +172,7 @@
 		}
 
 		#footer {
-			width: 960px;
+			width: 100%;
 			margin: 40px auto 0 auto;
 			padding: 15px 0 30px 0;
 			border-top: 1px solid #292929;
@@ -177,6 +184,29 @@
 			#footer a {
 				color: #444;
 			}
+
+		/* Mobile adjustments */
+		@media(max-width:768px) {
+			#menu li {
+				display: block;
+				border-right: none;
+				margin-bottom: 5px;
+			}
+
+			#menu a {
+				padding: 10px 0;
+				display: block;
+			}
+
+			.news-item h2 {
+				font-size: 1.2em;
+				padding-left: 20px;
+			}
+
+			.news-content {
+				padding-left: 20px;
+			}
+		}
 	</style>
 
 	<script>
@@ -231,23 +261,20 @@
 				<h2>Behind the Code: A Look Into Periltek’s Design Philosophy</h2>
 				<div class="news-content">
 					<p>At Periltek Designs, design and purpose walk hand-in-hand. Our approach centers on functional artistry — crafting interfaces that not only look sharp but feel intuitive under pressure. Every system is modular, responsive, and built for performance.</p>
-					<p>“When you play or use a Periltek product, you’re part of a living framework that adapts to you,” says Phiber, lead developer and studio architect.</p>
 				</div>
 			</div>
 
 			<div class="news-item">
 				<h2>Inside Anarchy 404 — Beyond the Simulation</h2>
 				<div class="news-content">
-					<p><strong>Anarchy 404</strong> continues to evolve as Periltek’s experimental branch project — a world without order, designed to test AI-based systemic interaction, emergent survival logic, and digital chaos theory. It’s the ultimate simulation of instability — both technological and human.</p>
-					<p>Unlike traditional games, Anarchy 404 uses distributed runtime events and generative behavioral loops to alter its world over time. Development is closely tied to Periltek’s evolving data-layer architecture powering “The Red.”</p>
+					<p><strong>Anarchy 404</strong> continues to evolve as Periltek’s experimental branch project — a world without order, designed to test AI-based systemic interaction, emergent survival logic, and digital chaos theory. Development ties closely to the data-layer architecture powering “The Red.”</p>
 				</div>
 			</div>
 
 			<div class="news-item">
 				<h2>Community Integration and Support Framework</h2>
 				<div class="news-content">
-					<p>We’re establishing a dedicated <strong>Community & Support Hub</strong> to streamline communication with users, early testers, and partners. The platform will integrate feedback directly into our live development dashboards.</p>
-					<p>Contact & Support are always available at <a href="contact.html">contact.html</a>.</p>
+					<p>We’re establishing a dedicated <strong>Community & Support Hub</strong> to streamline communication with users, early testers, and partners. Contact & Support are always available at <a href="contact.html">contact.html</a>.</p>
 				</div>
 			</div>
 		</div>

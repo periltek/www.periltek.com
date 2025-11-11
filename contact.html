@@ -1,91 +1,136 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+		  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<meta charset="utf-8" />
-	<title>Contact & Support | Red River Recreations</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet" />
+	<meta name="keywords" content="Periltek Designs, game development, indie studio, The Red, RRG Mobile, Red River Gorge, game app" />
+	<meta name="description" content="Periltek Designs is a creative studio reshaping its identity through innovation and immersive design. Discover our upcoming app — The Red: RRG Mobile." />
+	<title>Periltek Designs | Contact</title>
+	<link href="http://fonts.googleapis.com/css?family=Abel" rel="stylesheet" type="text/css" />
+
 	<style>
-		body {
+		body, html {
 			margin: 0;
+			padding: 0;
 			font-family: 'Abel', sans-serif;
+			background: #0E0E0E;
 			color: #fff;
-			background: #000 url('PTCity.jpg') no-repeat center center fixed;
-			background-size: cover;
 		}
 
-		.overlay {
-			background: rgba(0, 0, 0, 0.85);
-			position: fixed;
-			inset: 0;
-			z-index: -1;
+		a {
+			text-decoration: none;
+			color: #FF7637;
 		}
 
-		header {
+			a:hover {
+				text-decoration: underline;
+			}
+
+		#wrapper {
+			max-width: 960px;
+			width: 95%;
+			margin: 0 auto;
 			position: relative;
-			text-align: center;
-			padding: 40px 0 20px 0;
+			min-height: 100vh;
 		}
 
-			header img {
-				width: 120px;
-				height: 120px;
-				object-fit: contain;
+			#wrapper::before {
+				content: "";
 				position: absolute;
-				top: 10px;
-				right: 10px;
-				opacity: 0.15;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: url('images/PTCity.jpg') no-repeat center top;
+				background-size: cover;
+				opacity: 0.05;
+				z-index: 0;
 			}
 
-			header h1 {
-				font-size: 2.5em;
-				color: #FF7637;
-				margin: 0;
+			#wrapper > * {
+				position: relative;
+				z-index: 1;
 			}
 
-		/* Navigation Bar */
-		nav {
-			display: flex;
-			justify-content: center;
-			flex-wrap: wrap;
-			gap: 15px;
-			background: rgba(30, 30, 30, 0.7);
-			padding: 10px 0;
-			border-top: 2px solid #FF7637;
-			border-bottom: 2px solid #FF7637;
+		#logo {
+			width: 150px;
+			height: 150px;
+			margin: 20px auto;
+			text-align: center;
 		}
 
-			nav a {
-				color: #fff;
-				text-decoration: none;
-				padding: 10px 18px;
-				border-radius: 6px;
-				transition: background 0.3s, color 0.3s;
-				font-size: 1.05em;
+			#logo img {
+				width: 100%;
+				height: auto;
+				display: block;
 			}
 
-				nav a:hover, nav a.active {
-					background: #FF7637;
-					color: #000;
+		#menu {
+			overflow: hidden;
+			margin: 0 auto;
+			padding: 20px 0;
+			border-top: 1px solid #292929;
+			border-bottom: 1px solid #292929;
+			text-align: center;
+		}
+
+			#menu ul {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+
+			#menu li {
+				display: inline-block;
+				border-right: 1px solid #292929;
+			}
+
+				#menu li:last-child {
+					border-right: none;
 				}
 
-		/* Page content area */
+			#menu a {
+				display: inline-block;
+				padding: 0 20px;
+				font-size: 16px;
+				color: #fff;
+			}
+
+				#menu a:hover, #menu .current_page_item a {
+					color: #FF7637;
+				}
+
+		#welcome {
+			width: 100%;
+			margin: 0 auto;
+			padding: 30px 0;
+			border-bottom: 1px solid #292929;
+		}
+
+			#welcome h2 a {
+				color: #FF7637;
+			}
+
+			#welcome .entry p {
+				color: #ccc;
+			}
+
 		#content {
-			max-width: 800px;
-			margin: 60px auto 40px auto;
-			background: rgba(30, 30, 30, 0.7);
-			padding: 40px;
-			border-radius: 12px;
-			box-shadow: 0 0 25px rgba(0, 0, 0, 0.7);
+			width: 100%;
+			background: rgba(14,14,14,0.8);
+			padding: 20px;
+			box-sizing: border-box;
+			border-radius: 8px;
 		}
 
 		h2 {
 			color: #FF7637;
-			font-size: 1.8em;
 			margin-top: 0;
 		}
 
 		p {
+			color: #ccc;
 			line-height: 1.6em;
 		}
 
@@ -93,15 +138,11 @@
 			display: flex;
 			flex-direction: column;
 			gap: 15px;
-			margin-top: 20px;
-		}
-
-		label {
-			font-weight: bold;
 		}
 
 		input, textarea {
-			background: rgba(255, 255, 255, 0.1);
+			width: 100%;
+			background: rgba(255,255,255,0.1);
 			border: 1px solid #FF7637;
 			border-radius: 6px;
 			padding: 10px;
@@ -129,98 +170,174 @@
 				background: #e35f20;
 			}
 
-		footer {
-			text-align: center;
-			font-size: 0.9em;
-			color: #aaa;
-			margin-bottom: 40px;
+		.expandable ul {
+			list-style: none;
+			padding: 0;
+			margin: 0;
 		}
 
-			footer a {
-				color: #FF7637;
-				text-decoration: none;
+		.expandable li {
+			cursor: pointer;
+			border-bottom: 1px dotted #292929;
+			position: relative;
+			padding-left: 25px;
+			line-height: 1.5em;
+			margin-bottom: 5px;
+			background: rgba(50,50,50,0.5);
+			border-radius: 6px;
+			transition: background 0.3s ease;
+		}
+
+			.expandable li:hover {
+				background: rgba(255,118,55,0.2);
 			}
 
-				footer a:hover {
-					text-decoration: underline;
+			.expandable li.active {
+				background: rgba(255,118,55,0.3);
+			}
+
+			.expandable li.has-sub::before {
+				content: "(+)";
+				position: absolute;
+				left: 5px;
+				top: 0;
+				font-weight: bold;
+				color: #FF7637;
+			}
+
+			.expandable li.active.has-sub::before {
+				content: "(-)";
+			}
+
+			.expandable li ul {
+				display: none;
+				padding-left: 20px;
+				margin-top: 5px;
+			}
+
+			.expandable li.active > ul {
+				display: block;
+			}
+
+			.expandable li a {
+				color: #fff;
+				text-decoration: none;
+				display: block;
+				margin-left: 10px;
+				padding: 4px 0;
+			}
+
+				.expandable li a:hover {
+					color: #000;
 				}
 
-		.services {
-			margin-top: 30px;
-			background: rgba(255,118,55,0.15);
-			padding: 20px;
-			border-radius: 10px;
+		#footer {
+			width: 100%;
+			margin: 0 auto;
+			padding: 15px 0 30px 0;
+			border-top: 1px solid #292929;
+			text-align: center;
+			color: #444;
+			font-size: 12px;
 		}
 
-			.services h3 {
-				color: #FF7637;
-				margin-bottom: 10px;
-			}
-
-			.services ul {
-				list-style: none;
-				padding: 0;
-				margin: 0;
-			}
-
-			.services li {
-				margin-bottom: 8px;
+			#footer a {
+				color: #444;
 			}
 	</style>
+
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			const items = document.querySelectorAll(".expandable li.has-sub");
+			items.forEach(item => {
+				item.addEventListener("click", function (e) {
+					e.stopPropagation();
+					this.classList.toggle("active");
+				});
+			});
+		});
+	</script>
 </head>
+
 <body>
-	<div class="overlay"></div>
+	<div id="wrapper">
+		<div id="logo">
+			<a href="index.html"><img src="images/Periltek-Logo.png" alt="Periltek Designs Logo" /></a>
+		</div>
 
-	<header>
-		<h1>Contact & Support</h1>
-		<img src="logo.png" alt="Logo" />
-	</header>
-
-	<!-- NAVIGATION BAR -->
-	<nav>
-		<a href="index.html">Home</a>
-		<a href="about.html">About</a>
-		<a href="news.html">News</a>
-		<a href="projects.html">Projects</a>
-		<a href="devlog.html">Devlog</a>
-		<a href="contact.html" class="active">Contact</a>
-	</nav>
-
-	<!-- MAIN CONTENT -->
-	<section id="content">
-		<h2>We’d love to hear from you</h2>
-		<p>Have questions about our apps, games, or future releases? Whether you’re seeking freelance development, partnership opportunities, or general inquiries — fill out the form below, and we’ll respond as soon as possible.</p>
-
-		<form action="https://formspree.io/f/xwpakbvr" method="POST">
-			<label for="name">Name:</label>
-			<input type="text" name="name" id="name" required=required />
-
-			<label for="email">Email:</label>
-			<input type="email" name="_replyto" id="email" required=required />
-
-			<label for="message">Message:</label>
-			<textarea name="message" id="message" required=required></textarea>
-
-			<button type="submit">Send Message</button>
-		</form>
-
-		<div class="services">
-			<h3>Our Services</h3>
+		<div id="menu">
 			<ul>
-				<li>🎮 Game Design & Development</li>
-				<li>🌐 Web & App Integration</li>
-				<li>🛠️ Technical Consultation</li>
-				<li>📦 Publishing & Distribution Assistance</li>
-				<li>💼 Freelance and Contract Development</li>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="news.html">News</a></li>
+				<li><a href="projects.html">Projects</a></li>
+				<li><a href="about.html">About</a></li>
+				<li><a href="devlog.html">Devlog</a></li>
+				<li class="current_page_item"><a href="contact.html">Contact</a></li>
 			</ul>
 		</div>
-	</section>
 
-	<footer>
-		<div id="footer">
-			<p>&copy; 2025 Periltek Designs. All rights reserved. Design framework by <a href="https://templated.live/naturalprime/" rel="nofollow">TEMPLATED</a>.</p>
+		<div id="welcome">
+			<h2 class="title"><a href="#">Contact & Support</a></h2>
+			<div class="entry">
+				<p>Have questions about our apps, games, or future releases? Whether you’re seeking freelance development, partnership opportunities, or general inquiries — fill out the form below, and we’ll respond as soon as possible.</p>
+			</div>
 		</div>
-	</footer>
 
+		<div id="page">
+			<div id="content">
+				<form action="https://formspree.io/f/xwpakbvr" method="POST">
+					<label for="name">Name:</label>
+					<input type="text" name="name" id="name" required=required />
+
+					<label for="email">Email:</label>
+					<input type="email" name="_replyto" id="email" required=required />
+
+					<label for="message">Message:</label>
+					<textarea name="message" id="message" required=required></textarea>
+
+					<button type="submit">Send Message</button>
+				</form>
+
+				<div class="services">
+					<h3>Our Services</h3>
+					<ul>
+						<li>🎮 Game Design & Development</li>
+						<li>🌐 Web & App Integration</li>
+						<li>🛠️ Technical Consultation</li>
+						<li>📦 Publishing & Distribution Assistance</li>
+						<li>💼 Freelance and Contract Development</li>
+					</ul>
+				</div>
+
+				<!-- Sidebar links moved below form -->
+				<div class="expandable">
+					<ul>
+						<li class="has-sub">
+							Projects
+							<ul>
+								<li><a href="projects.html#thered">The Red – RRG Mobile</a></li>
+								<li><a href="projects.html#future">Future Game Concepts</a></li>
+								<li><a href="projects.html#tools">Experimental Tools</a></li>
+							</ul>
+						</li>
+						<li class="has-sub">
+							Devlog
+							<ul>
+								<li><a href="devlog.html#latest">Latest Updates</a></li>
+								<li><a href="devlog.html#beta">Beta Testing Notes</a></li>
+								<li><a href="devlog.html#team">Team Insights</a></li>
+							</ul>
+						</li>
+						<li><a href="contact.html">Contact & Support</a></li>
+					</ul>
+				</div>
+
+			</div>
+		</div>
+
+		<div id="footer">
+			<p>&copy; 2025 Periltek Designs. All rights reserved. Template adapted from <a href="https://templated.live/naturalprime/" rel="nofollow">NaturalPrime</a>.</p>
+		</div>
+	</div>
 </body>
 </html>

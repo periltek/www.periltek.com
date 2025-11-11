@@ -2,17 +2,18 @@
 		  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="keywords" content="Periltek Designs, game development, indie studio, The Red, RRG Mobile, Red River Gorge, game app" />
 	<meta name="description" content="Periltek Designs is a creative studio reshaping its identity through innovation and immersive design. Discover our upcoming app — The Red: RRG Mobile." />
-	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<title>Periltek Designs | About</title>
 	<link href="http://fonts.googleapis.com/css?family=Abel" rel="stylesheet" type="text/css" />
-	<style type="text/css">
-		/* Reset and base */
+
+	<style>
 		body, html {
 			margin: 0;
 			padding: 0;
-			font-family: 'Abel', sans-serif;
+			font-family: 'Abel',sans-serif;
 			background: #0E0E0E;
 			color: #fff;
 		}
@@ -26,9 +27,9 @@
 				text-decoration: underline;
 			}
 
-		/* Wrapper with faded background image */
 		#wrapper {
-			width: 960px;
+			max-width: 960px;
+			width: 95%;
 			margin: 0 auto;
 			position: relative;
 			min-height: 100vh;
@@ -52,7 +53,6 @@
 				z-index: 1;
 			}
 
-		/* Logo section */
 		#logo {
 			width: 150px;
 			height: 150px;
@@ -61,27 +61,24 @@
 		}
 
 			#logo img {
-				width: 150px;
-				height: 150px;
+				width: 100%;
+				height: auto;
 				display: block;
-				margin: 0 auto;
 			}
 
-		/* Top navigation menu */
 		#menu {
 			overflow: hidden;
-			width: 960px;
 			margin: 0 auto;
 			padding: 20px 0;
 			border-top: 1px solid #292929;
 			border-bottom: 1px solid #292929;
+			text-align: center;
 		}
 
 			#menu ul {
 				margin: 0;
 				padding: 0;
 				list-style: none;
-				text-align: center;
 			}
 
 			#menu li {
@@ -94,60 +91,18 @@
 				}
 
 			#menu a {
-				display: block;
-				padding: 0 40px;
-				font-size: 20px;
-				color: #FFFFFF;
+				display: inline-block;
+				padding: 0 20px;
+				font-size: 16px;
+				color: #fff;
 			}
 
-				#menu a:hover,
-				#menu .current_page_item a {
+				#menu a:hover, #menu .current_page_item a {
 					color: #FF7637;
 				}
 
-		/* Content columns */
-		#three-columns {
-			overflow: hidden;
-			width: 960px;
-			padding: 30px 0;
-			border-bottom: 1px solid #292929;
-		}
-
-			#three-columns #column1,
-			#three-columns #column2,
-			#three-columns #column3 {
-				float: left;
-				width: 290px;
-				margin-right: 40px;
-			}
-
-			#three-columns #column3 {
-				float: right;
-				margin-right: 0;
-			}
-
-			#three-columns h2 {
-				font-size: 1.8em;
-				color: #FF7637;
-				margin-bottom: 10px;
-			}
-
-		.link-style {
-			display: inline-block;
-			margin-top: 10px;
-			padding: 5px 15px;
-			background: #FF7637;
-			border-radius: 10px;
-			color: #FFFFFF;
-		}
-
-			.link-style:hover {
-				background: #ff884e;
-			}
-
-		/* Welcome section */
 		#welcome {
-			width: 960px;
+			width: 100%;
 			margin: 0 auto;
 			padding: 30px 0;
 			border-bottom: 1px solid #292929;
@@ -161,28 +116,35 @@
 				color: #ccc;
 			}
 
-		/* Main content */
+		#page {
+			display: flex;
+			flex-wrap: wrap;
+			padding-top: 20px;
+		}
+
 		#content {
-			float: right;
-			width: 620px;
-			padding: 10px 0 0 0;
+			flex: 1 1 100%;
 			background: rgba(14,14,14,0.8);
-			color: #fff;
+			padding: 10px;
+			box-sizing: border-box;
 		}
 
-		.post .title a {
-			color: #FF7637;
-		}
-
-		.entry p {
-			color: #ccc;
-		}
-
-		/* Sidebar expandable menu */
 		#sidebar {
-			float: left;
-			width: 280px;
-			padding: 30px 0 0 0;
+			flex: 0 0 280px;
+			padding: 0;
+			margin-top: 20px;
+			box-sizing: border-box;
+		}
+
+		@media(min-width:768px) {
+			#content {
+				flex: 1 1 calc(100% - 300px);
+				margin-top: 0;
+			}
+
+			#sidebar {
+				margin-top: 0;
+			}
 		}
 
 		.expandable ul {
@@ -252,9 +214,8 @@
 			clear: both;
 		}
 
-		/* Footer */
 		#footer {
-			width: 960px;
+			width: 100%;
 			margin: 0 auto;
 			padding: 15px 0 30px 0;
 			border-top: 1px solid #292929;
@@ -269,15 +230,15 @@
 	</style>
 
 	<script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const items = document.querySelectorAll(".expandable li.has-sub");
-            items.forEach(item => {
-                item.addEventListener("click", function (e) {
-                    e.stopPropagation();
-                    this.classList.toggle("active");
-                });
-            });
-        });
+		document.addEventListener("DOMContentLoaded", function () {
+			const items = document.querySelectorAll(".expandable li.has-sub");
+			items.forEach(item => {
+				item.addEventListener("click", function (e) {
+					e.stopPropagation();
+					this.classList.toggle("active");
+				});
+			});
+		});
 	</script>
 </head>
 
@@ -301,21 +262,16 @@
 		<div id="welcome">
 			<h2 class="title"><a href="#">About Periltek Designs</a></h2>
 			<div class="entry">
-				<p>
-					<strong>Periltek Designs</strong> is a creative studio redefining indie development.
-					From experimental tools to world-scale simulations, our focus remains:
-					create immersive, meaningful, and lasting experiences that blend the real and digital.
-				</p>
+				<p><strong>Periltek Designs</strong> is a creative studio redefining indie development. From experimental tools to world-scale simulations, our focus remains: create immersive, meaningful, and lasting experiences that blend the real and digital.</p>
 			</div>
 		</div>
 
-		<div id="page" class="clearfix">
+		<div id="page">
 			<div id="content">
 				<div class="post">
 					<h2 class="title"><a href="#">Our Story</a></h2>
 					<div class="entry">
 						<p>Founded on a passion for exploration and creative problem-solving, Periltek Designs began as an initiative to merge storytelling, world simulation, and human connection. Today, the studio focuses on developing projects such as <strong>The Red – RRG Mobile</strong> and the <strong>Camp Red</strong> series, bridging mobile, PC, and immersive systems.</p>
-
 						<p>Our mission is simple: deliver experiences that connect people to stories and worlds that feel alive.</p>
 					</div>
 				</div>
@@ -328,7 +284,7 @@
 						<ul>
 							<li><a href="projects.html#thered">The Red – RRG Mobile</a></li>
 							<li><a href="projects.html#campred">Camp Red</a></li>
-							<li><a href="projects.html#anarchy">Anarchy 404</a></li>
+							<li><a href="projects.html#anarchy404">Anarchy 404</a></li>
 						</ul>
 					</li>
 					<li class="has-sub">

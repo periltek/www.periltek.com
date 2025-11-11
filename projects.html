@@ -1,395 +1,428 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-		  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<meta name="keywords" content="Periltek Designs, game development, The Red RRG Mobile, Camp Red, Anarchy 404, Rapid Red, Deep Red, The Darkening" />
-	<meta name="description" content="Projects portfolio of Periltek Designs: The Red – RRG Mobile, Camp Red (and expansions), Rapid Red, Deep Red, The Darkening, Anarchy 404." />
-	<title>Periltek Designs | Projects</title>
-	<link href="http://fonts.googleapis.com/css?family=Abel" rel="stylesheet" type="text/css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="Periltek Designs, projects, classified, Anarchy 404, Archonton Mathematika, game development" />
+    <meta name="description" content="Password-protected classified projects from Periltek Designs: Anarchy 404, Archonton Mathematika, and hidden Easter eggs." />
+    <title>Periltek Designs | Projects</title>
+    <link href="http://fonts.googleapis.com/css?family=Abel" rel="stylesheet" type="text/css" />
 
-	<style>
-		body, html {
-			margin: 0;
-			padding: 0;
-			font-family: 'Abel',sans-serif;
-			background: #0E0E0E;
-			color: #fff;
-		}
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Abel', sans-serif;
+            background: #0E0E0E;
+            color: #fff;
+        }
 
-		a {
-			text-decoration: none;
-			color: #FF7637;
-		}
+        a {
+            text-decoration: none;
+            color: #FF7637;
+        }
 
-			a:hover {
-				text-decoration: underline;
-			}
+            a:hover {
+                text-decoration: underline;
+            }
 
-		#wrapper {
-			max-width: 960px;
-			width: 95%;
-			margin: 0 auto;
-			position: relative;
-			min-height: 100vh;
-		}
+        #wrapper {
+            max-width: 960px;
+            width: 95%;
+            margin: 0 auto;
+            position: relative;
+            min-height: 100vh;
+        }
 
-			#wrapper::before {
-				content: "";
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
-				background: url('images/PTCity.jpg') no-repeat center top;
-				background-size: cover;
-				opacity: 0.05;
-				z-index: 0;
-			}
+            #wrapper::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: url('images/PTCity.jpg') no-repeat center top;
+                background-size: cover;
+                opacity: 0.05;
+                z-index: 0;
+            }
 
-			#wrapper > * {
-				position: relative;
-				z-index: 1;
-			}
+            #wrapper > * {
+                position: relative;
+                z-index: 1;
+            }
 
-		#logo {
-			width: 150px;
-			height: 150px;
-			margin: 20px auto;
-			text-align: center;
-		}
+        #logo {
+            width: 150px;
+            height: 150px;
+            margin: 20px auto;
+            text-align: center;
+        }
 
-			#logo img {
-				width: 100%;
-				height: auto;
-				display: block;
-			}
+            #logo img {
+                width: 100%;
+                height: auto;
+                display: block;
+            }
 
-		#menu {
-			overflow: hidden;
-			margin: 0 auto;
-			padding: 20px 0;
-			border-top: 1px solid #292929;
-			border-bottom: 1px solid #292929;
-			text-align: center;
-		}
+        #menu {
+            overflow: hidden;
+            margin: 0 auto;
+            padding: 20px 0;
+            border-top: 1px solid #292929;
+            border-bottom: 1px solid #292929;
+            text-align: center;
+        }
 
-			#menu ul {
-				margin: 0;
-				padding: 0;
-				list-style: none;
-			}
+            #menu ul {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
 
-			#menu li {
-				display: inline-block;
-				border-right: 1px solid #292929;
-			}
+            #menu li {
+                display: inline-block;
+                border-right: 1px solid #292929;
+            }
 
-				#menu li:last-child {
-					border-right: none;
-				}
+                #menu li:last-child {
+                    border-right: none;
+                }
 
-			#menu a {
-				display: inline-block;
-				padding: 0 20px;
-				font-size: 16px;
-				color: #fff;
-			}
+            #menu a {
+                display: inline-block;
+                padding: 0 20px;
+                font-size: 16px;
+                color: #fff;
+            }
 
-				#menu a:hover, #menu .current_page_item a {
-					color: #FF7637;
-				}
+                #menu a:hover, #menu .current_page_item a {
+                    color: #FF7637;
+                }
 
-		#three-columns {
-			display: flex;
-			flex-wrap: wrap;
-			justify-content: space-between;
-			padding: 30px 0;
-			border-bottom: 1px solid #292929;
-		}
+        #three-columns {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 30px 0;
+            border-bottom: 1px solid #292929;
+        }
 
-			#three-columns > div {
-				flex: 1 1 100%;
-				margin-bottom: 20px;
-			}
+            #three-columns > div {
+                flex: 1 1 100%;
+                margin-bottom: 20px;
+            }
 
-		@media(min-width:768px) {
-			#three-columns > div {
-				flex: 0 0 30%;
-				margin-bottom: 0;
-			}
-		}
+        @media(min-width:768px) {
+            #three-columns > div {
+                flex: 0 0 30%;
+                margin-bottom: 0;
+            }
+        }
 
-		#three-columns h2 {
-			font-size: 1.8em;
-			color: #FF7637;
-			margin-bottom: 10px;
-		}
+        #three-columns h2 {
+            font-size: 1.8em;
+            color: #FF7637;
+            margin-bottom: 10px;
+        }
 
-		.link-style {
-			display: inline-block;
-			margin-top: 10px;
-			padding: 5px 15px;
-			background: #FF7637;
-			border-radius: 10px;
-			color: #fff;
-		}
+        .link-style {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 5px 15px;
+            background: #FF7637;
+            border-radius: 10px;
+            color: #fff;
+        }
 
-			.link-style:hover {
-				background: #ff884e;
-			}
+            .link-style:hover {
+                background: #ff884e;
+            }
 
-		#welcome {
-			width: 100%;
-			margin: 0 auto;
-			padding: 30px 0;
-			border-bottom: 1px solid #292929;
-		}
+        #welcome {
+            width: 100%;
+            margin: 0 auto;
+            padding: 30px 0;
+            border-bottom: 1px solid #292929;
+        }
 
-			#welcome h2 a {
-				color: #FF7637;
-			}
+            #welcome h2 a {
+                color: #FF7637;
+            }
 
-			#welcome .entry p {
-				color: #ccc;
-			}
+            #welcome .entry p {
+                color: #ccc;
+            }
 
-		#page {
-			display: flex;
-			flex-wrap: wrap;
-			padding-top: 20px;
-		}
+        #page {
+            display: flex;
+            flex-wrap: wrap;
+            padding-top: 20px;
+        }
 
-		#content {
-			flex: 1 1 100%;
-			background: rgba(14,14,14,0.8);
-			padding: 10px;
-			box-sizing: border-box;
-		}
+        #content {
+            flex: 1 1 100%;
+            background: rgba(14,14,14,0.8);
+            padding: 10px;
+            box-sizing: border-box;
+        }
 
-		#sidebar {
-			flex: 0 0 280px;
-			padding: 0 0 0 0;
-			box-sizing: border-box;
-			margin-top: 20px;
-		}
+        #sidebar {
+            flex: 0 0 280px;
+            padding: 0;
+            box-sizing: border-box;
+            margin-top: 20px;
+        }
 
-		@media(min-width:768px) {
-			#content {
-				flex: 1 1 calc(100% - 300px);
-				margin-top: 0;
-			}
+        @media(min-width:768px) {
+            #content {
+                flex: 1 1 calc(100% - 300px);
+                margin-top: 0;
+            }
 
-			#sidebar {
-				margin-top: 0;
-			}
-		}
+            #sidebar {
+                margin-top: 0;
+            }
+        }
 
-		.expandable ul {
-			list-style: none;
-			padding: 0;
-			margin: 0;
-		}
+        .expandable ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
 
-		.expandable li {
-			cursor: pointer;
-			border-bottom: 1px dotted #292929;
-			position: relative;
-			padding-left: 25px;
-			line-height: 1.5em;
-			margin-bottom: 5px;
-			background: rgba(50,50,50,0.5);
-			border-radius: 6px;
-			transition: background 0.3s ease;
-		}
+        .expandable li {
+            cursor: pointer;
+            border-bottom: 1px dotted #292929;
+            position: relative;
+            padding-left: 25px;
+            line-height: 1.5em;
+            margin-bottom: 5px;
+            background: rgba(50,50,50,0.5);
+            border-radius: 6px;
+            transition: background 0.3s ease;
+        }
 
-			.expandable li:hover {
-				background: rgba(255,118,55,0.2);
-			}
+            .expandable li:hover {
+                background: rgba(255,118,55,0.2);
+            }
 
-			.expandable li.active {
-				background: rgba(255,118,55,0.3);
-			}
+            .expandable li.active {
+                background: rgba(255,118,55,0.3);
+            }
 
-			.expandable li.has-sub::before {
-				content: "(+)";
-				position: absolute;
-				left: 5px;
-				top: 0;
-				font-weight: bold;
-				color: #FF7637;
-			}
+            .expandable li.has-sub::before {
+                content: "(+)";
+                position: absolute;
+                left: 5px;
+                top: 0;
+                font-weight: bold;
+                color: #FF7637;
+            }
 
-			.expandable li.active.has-sub::before {
-				content: "(-)";
-			}
+            .expandable li.active.has-sub::before {
+                content: "(-)";
+            }
 
-			.expandable li ul {
-				display: none;
-				padding-left: 20px;
-				margin-top: 5px;
-			}
+            .expandable li ul {
+                display: none;
+                padding-left: 20px;
+                margin-top: 5px;
+            }
 
-			.expandable li.active > ul {
-				display: block;
-			}
+            .expandable li.active > ul {
+                display: block;
+            }
 
-			.expandable li a {
-				color: #fff;
-				text-decoration: none;
-				display: block;
-				margin-left: 10px;
-				padding: 4px 0;
-			}
+            .expandable li a {
+                color: #fff;
+                text-decoration: none;
+                display: block;
+                margin-left: 10px;
+                padding: 4px 0;
+            }
 
-				.expandable li a:hover {
-					color: #000;
-				}
+                .expandable li a:hover {
+                    color: #000;
+                }
 
-		.clearfix::after {
-			content: "";
-			display: block;
-			clear: both;
-		}
+        #classified-password {
+            margin-top: 10px;
+            width: 90%;
+            padding: 5px;
+        }
 
-		#footer {
-			width: 100%;
-			margin: 0 auto;
-			padding: 15px 0 30px 0;
-			border-top: 1px solid #292929;
-			text-align: center;
-			color: #444;
-			font-size: 12px;
-		}
+        #classified-submit {
+            margin-top: 5px;
+            padding: 5px 10px;
+        }
 
-			#footer a {
-				color: #444;
-			}
-	</style>
+        #classified-error {
+            color: #FF5555;
+            display: none;
+            margin-top: 5px;
+        }
 
-	<script>
-		document.addEventListener("DOMContentLoaded", function () {
-			const items = document.querySelectorAll(".expandable li.has-sub");
-			items.forEach(item => {
-				item.addEventListener("click", function (e) {
-					e.stopPropagation();
-					this.classList.toggle("active");
-				});
-			});
-		});
-	</script>
+        .classified-project {
+            margin-bottom: 20px;
+            background: rgba(40,40,40,0.7);
+            padding: 10px;
+            border-radius: 6px;
+        }
+
+            .classified-project h3 {
+                color: #FF7637;
+                margin-top: 0;
+            }
+
+            .classified-project ul {
+                margin: 5px 0 10px 20px;
+            }
+
+        #footer {
+            width: 100%;
+            margin: 0 auto;
+            padding: 15px 0 30px 0;
+            border-top: 1px solid #292929;
+            text-align: center;
+            color: #444;
+            font-size: 12px;
+        }
+
+            #footer a {
+                color: #444;
+            }
+    </style>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Expandable sidebar toggle
+            const items = document.querySelectorAll(".expandable li.has-sub");
+            items.forEach(item => {
+                item.addEventListener("click", function (e) {
+                    e.stopPropagation();
+                    this.classList.toggle("active");
+                });
+            });
+
+            // Classified Projects password logic
+            const submitBtn = document.getElementById("classified-submit");
+            submitBtn.addEventListener("click", async function () {
+                const inputPw = document.getElementById("classified-password").value;
+                const errorMsg = document.getElementById("classified-error");
+                const contentArea = document.getElementById("classified-content");
+                contentArea.innerHTML = "";
+                errorMsg.style.display = "none";
+
+                try {
+                    const res = await fetch("https://gist.githubusercontent.com/periltek/bb8013410ecde9cc3e1c0d5e2417a9db/raw/f70f58e82e214a567245852d0209122ce0d3e415/restrictedprojects.json");
+                    const data = await res.json();
+                    if (inputPw === data.password) {
+                        data.projects.forEach(proj => {
+                            const projDiv = document.createElement("div");
+                            projDiv.className = "classified-project";
+                            projDiv.innerHTML = `
+                            <h3>${proj.title}</h3>
+                            <p>${proj.description}</p>
+                            <p><strong>Status:</strong> ${proj.status}</p>
+                            <p><strong>Start Date:</strong> ${proj.startDate}</p>
+                            <p><strong>Team:</strong> ${proj.team.join(", ")}</p>
+                            <p><strong>Links:</strong> ${proj.links ? Object.entries(proj.links).map(([k, v]) => `<a href="${v}" target="_blank">${k}</a>`).join(", ") : "None"}</p>
+                            ${proj.easterEggs ? `<ul><strong>Easter Eggs:</strong>${proj.easterEggs.map(e => `<li><strong>${e.name}:</strong> ${e.description}</li>`).join("")}</ul>` : ""}
+                            ${proj.references ? `<ul><strong>References:</strong>${proj.references.map(r => `<li>${r}</li>`).join("")}</ul>` : ""}
+                        `;
+                            contentArea.appendChild(projDiv);
+                        });
+                    } else {
+                        errorMsg.style.display = "block";
+                    }
+                } catch (e) {
+                    errorMsg.innerText = "Error fetching projects!";
+                    errorMsg.style.display = "block";
+                }
+            });
+        });
+    </script>
 </head>
 
 <body>
-	<div id="wrapper">
-		<div id="logo">
-			<a href="index.html"><img src="images/Periltek-Logo.png" alt="Periltek Designs Logo" /></a>
-		</div>
+    <div id="wrapper">
+        <div id="logo">
+            <a href="index.html"><img src="images/Periltek-Logo.png" alt="Periltek Designs Logo" /></a>
+        </div>
 
-		<div id="menu">
-			<ul>
-				<li><a href="index.html">Home</a></li>
-				<li><a href="news.html">News</a></li>
-				<li class="current_page_item"><a href="projects.html">Projects</a></li>
-				<li><a href="about.html">About</a></li>
-				<li><a href="devlog.html">Devlog</a></li>
-				<li><a href="contact.html">Contact</a></li>
-			</ul>
-		</div>
+        <div id="menu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="news.html">News</a></li>
+                <li class="current_page_item"><a href="projects.html">Projects</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="devlog.html">Devlog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
 
-		<div id="three-columns">
-			<div id="column1">
-				<h2>Our Projects</h2>
-				<p>At Periltek Designs, we’re building a multi-tiered portfolio of immersive games, simulators, and experiences. Explore our flagship titles, expansions, and innovative works in development below.</p>
-				<p><a href="about.html" class="link-style">Learn More</a></p>
-			</div>
-			<div id="column2">
-				<h2>Featured Title</h2>
-				<p>Our core focus right now: <strong>The Red – RRG Mobile</strong>, an ambitious mobile app bridging location-based exploration, narrative, and adventure in the Red River Gorge.</p>
-				<p><a href="https://www.RedRiverRecreations.com" target="_blank" class="link-style">Discover the App</a></p>
-			</div>
-			<div id="column3">
-				<h2>Next Evolutions</h2>
-				<p>Also in progress: Camp Red and its expansion ecosystem, Rapid Red, Deep Red, The Darkening — and beyond. Dive into each concept below.</p>
-				<p><a href="devlog.html" class="link-style">Follow Updates</a></p>
-			</div>
-		</div>
+        <div id="three-columns">
+            <div id="column1">
+                <h2>Our Projects</h2>
+                <p>Explore our active and classified projects at Periltek Designs.</p>
+                <p><a href="about.html" class="link-style">Learn More</a></p>
+            </div>
+            <div id="column2">
+                <h2>Featured Title</h2>
+                <p>Current focus: <strong>The Red – RRG Mobile</strong></p>
+            </div>
+            <div id="column3">
+                <h2>Next Evolutions</h2>
+                <p>Check for hidden content by accessing the classified projects below.</p>
+            </div>
+        </div>
 
-		<div id="welcome">
-			<h2 class="title"><a href="#">Project Portfolio Overview</a></h2>
-			<div class="entry">
-				<p>Below you’ll find detailed summaries of the major projects currently active at Periltek Designs. Each builds toward our vision of interactive worlds, meaningful player experience, and creative growth.</p>
-			</div>
-		</div>
+        <div id="welcome">
+            <h2 class="title"><a href="#">Project Portfolio Overview</a></h2>
+            <div class="entry">
+                <p>Enter the password below to access the classified project dossiers and hidden lore.</p>
+                <input type="password" id="classified-password" placeholder="Enter Password" />
+                <button id="classified-submit">Submit</button>
+                <div id="classified-error">Invalid password, try again.</div>
+                <div id="classified-content"></div>
+            </div>
+        </div>
 
-		<div id="page">
-			<div id="content">
-				<div class="post">
-					<h2 class="title"><a href="#">Project Details</a></h2>
-					<div class="entry">
-						<h3 id="thered">The Red – RRG Mobile</h3>
-						<p><strong>The Red – RRG Mobile</strong> is our flagship mobile application designed to bring the Red River Gorge to life. Features include interactive maps, live outdoor data, storytelling tied to physical location, and a community-driven layer of exploration.</p>
+        <div id="sidebar" class="expandable">
+            <ul>
+                <li class="has-sub">
+                    Projects
+                    <ul>
+                        <li><a href="projects.html#thered">The Red – RRG Mobile</a></li>
+                        <li><a href="projects.html#campred">Camp Red & Expansions</a></li>
+                        <li><a href="projects.html#anarchy404">Anarchy 404</a></li>
+                    </ul>
+                </li>
+                <li class="has-sub">
+                    Devlog
+                    <ul>
+                        <li><a href="devlog.html#latest">Latest Updates</a></li>
+                        <li><a href="devlog.html#beta">Beta Testing Notes</a></li>
+                        <li><a href="devlog.html#team">Team Insights</a></li>
+                    </ul>
+                </li>
+                <li class="has-sub">
+                    Media
+                    <ul>
+                        <li><a href="media.html#screenshots">Screenshots</a></li>
+                        <li><a href="media.html#concept">Concept Art</a></li>
+                        <li><a href="media.html#photos">Team Photos</a></li>
+                    </ul>
+                </li>
+                <li><a href="contact.html">Contact & Support</a></li>
+            </ul>
+        </div>
 
-						<h3 id="campred">Camp Red (Camping Simulator & Flagship Game)</h3>
-						<p><strong>Camp Red</strong> is our immersive camping simulation set in the Red River Gorge. Planned as a AAA-level experience offering realistic survival mechanics, environmental interactivity, and branching narratives.</p>
-						<p>Expansions:</p>
-						<ul>
-							<li><strong>Swift</strong> – storyline expansion following John Swift’s silver mines.</li>
-							<li><strong>Rapid Red</strong> – remote-control style expansion with new terrain and challenges.</li>
-							<li><strong>Deep Red</strong> – post-cataclysmic survival simulator in the same universe.</li>
-							<li><strong>The Darkening</strong> – horror-experience iteration set in the same world.</li>
-						</ul>
-
-						<h3 id="anarchy404">Anarchy 404</h3>
-						<p><strong>Anarchy 404</strong> is an experimental project embracing open-world chaos and community-driven narratives in a collapsed digital society.</p>
-						<ul>
-							<li>Massive sandbox environment</li>
-							<li>Emergent narrative architecture</li>
-							<li>Dynamic world modelling</li>
-							<li>Community tools</li>
-							<li>Prototype status: early stage engine and framework</li>
-						</ul>
-
-						<p>We remain committed to innovation, ambition, and quality across every title, and will continue sharing development updates as we progress.</p>
-					</div>
-				</div>
-			</div>
-
-			<div id="sidebar" class="expandable">
-				<ul>
-					<li class="has-sub">
-						Projects
-						<ul>
-							<li><a href="projects.html#thered">The Red – RRG Mobile</a></li>
-							<li><a href="projects.html#campred">Camp Red & Expansions</a></li>
-							<li><a href="projects.html#anarchy404">Anarchy 404</a></li>
-						</ul>
-					</li>
-					<li class="has-sub">
-						Devlog
-						<ul>
-							<li><a href="devlog.html#latest">Latest Updates</a></li>
-							<li><a href="devlog.html#beta">Beta Testing Notes</a></li>
-							<li><a href="devlog.html#team">Team Insights</a></li>
-						</ul>
-					</li>
-					<li class="has-sub">
-						Media
-						<ul>
-							<li><a href="media.html#screenshots">Screenshots</a></li>
-							<li><a href="media.html#concept">Concept Art</a></li>
-							<li><a href="media.html#photos">Team Photos</a></li>
-						</ul>
-					</li>
-					<li><a href="contact.html">Contact & Support</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
-
-	<div id="footer">
-		<p>&copy; 2025 Periltek Designs. All rights reserved. Design framework by <a href="https://templated.live/naturalprime/" rel="nofollow">TEMPLATED</a>.</p>
-	</div>
+        <div id="footer">
+            <p>&copy; 2025 Periltek Designs. All rights reserved. Design framework by <a href="https://templated.live/naturalprime/" rel="nofollow">TEMPLATED</a>.</p>
+        </div>
+    </div>
 </body>
 </html>
