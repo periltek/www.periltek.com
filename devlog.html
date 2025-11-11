@@ -1,0 +1,379 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+		  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta name="keywords" content="Periltek Designs, devlog, development updates, beta testing, team insights, indie studio, game development" />
+	<meta name="description" content="Periltek Designs Devlog — featuring latest updates, beta testing notes, and insights from the development team." />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Periltek Designs | Devlog</title>
+	<link href="http://fonts.googleapis.com/css?family=Abel" rel="stylesheet" type="text/css" />
+
+	<style type="text/css">
+		/* --- Inherit identical core CSS from index/projects template --- */
+
+		/* Reset & core */
+		body, html {
+			margin: 0;
+			padding: 0;
+			font-family: 'Abel', sans-serif;
+			background: #0E0E0E;
+			color: #fff;
+		}
+
+		a {
+			text-decoration: none;
+			color: #FF7637;
+		}
+
+			a:hover {
+				text-decoration: underline;
+			}
+
+		/* Background with watermark */
+		#wrapper {
+			width: 960px;
+			margin: 0 auto;
+			position: relative;
+			min-height: 100vh;
+		}
+
+			#wrapper::before {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: url('images/PTCity.jpg') no-repeat center top;
+				background-size: cover;
+				opacity: 0.05;
+				z-index: 0;
+			}
+
+			#wrapper > * {
+				position: relative;
+				z-index: 1;
+			}
+
+		/* Logo */
+		#logo {
+			width: 150px;
+			height: 150px;
+			margin: 20px auto;
+			text-align: center;
+		}
+
+			#logo img {
+				width: 150px;
+				height: 150px;
+				display: block;
+				margin: 0 auto;
+			}
+
+		/* Navigation */
+		#menu {
+			overflow: hidden;
+			width: 960px;
+			margin: 0 auto;
+			padding: 20px 0;
+			border-top: 1px solid #292929;
+			border-bottom: 1px solid #292929;
+		}
+
+			#menu ul {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				text-align: center;
+			}
+
+			#menu li {
+				display: inline-block;
+				border-right: 1px solid #292929;
+			}
+
+				#menu li:last-child {
+					border-right: none;
+				}
+
+			#menu a {
+				display: block;
+				padding: 0 40px;
+				font-size: 20px;
+				color: #FFFFFF;
+			}
+
+				#menu a:hover, #menu .current_page_item a {
+					color: #FF7637;
+				}
+
+		/* Three-column top summary */
+		#three-columns {
+			overflow: hidden;
+			width: 960px;
+			padding: 30px 0;
+			border-bottom: 1px solid #292929;
+		}
+
+			#three-columns #column1, #three-columns #column2, #three-columns #column3 {
+				float: left;
+				width: 290px;
+				margin-right: 40px;
+			}
+
+			#three-columns #column3 {
+				float: right;
+				margin-right: 0;
+			}
+
+			#three-columns h2 {
+				font-size: 1.8em;
+				color: #FF7637;
+				margin-bottom: 10px;
+			}
+
+		.link-style {
+			display: inline-block;
+			margin-top: 10px;
+			padding: 5px 15px;
+			background: #FF7637;
+			border-radius: 10px;
+			color: #FFFFFF;
+		}
+
+			.link-style:hover {
+				background: #ff884e;
+			}
+
+		/* Welcome */
+		#welcome {
+			width: 960px;
+			margin: 0 auto;
+			padding: 30px 0;
+			border-bottom: 1px solid #292929;
+		}
+
+			#welcome h2 a {
+				color: #FF7637;
+			}
+
+			#welcome .entry p {
+				color: #ccc;
+			}
+
+		/* Content area */
+		#content {
+			float: right;
+			width: 620px;
+			padding: 10px 0 0 0;
+			background: rgba(14,14,14,0.8);
+			color: #fff;
+		}
+
+		.entry p {
+			color: #ccc;
+		}
+
+		/* Sidebar (expandable menu) */
+		#sidebar {
+			float: left;
+			width: 280px;
+			padding: 30px 0 0px 0;
+		}
+
+		.expandable ul {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+
+		.expandable li {
+			cursor: pointer;
+			border-bottom: 1px dotted #292929;
+			position: relative;
+			padding-left: 25px;
+			line-height: 1.5em;
+			margin-bottom: 5px;
+			background: rgba(50,50,50,0.5);
+			border-radius: 6px;
+			transition: background 0.3s ease;
+		}
+
+			.expandable li:hover {
+				background: rgba(255,118,55,0.2);
+			}
+
+			.expandable li.active {
+				background: rgba(255,118,55,0.3);
+			}
+
+			.expandable li.has-sub::before {
+				content: "(+)";
+				position: absolute;
+				left: 5px;
+				top: 0;
+				font-weight: bold;
+				color: #FF7637;
+			}
+
+			.expandable li.active.has-sub::before {
+				content: "(-)";
+			}
+
+			.expandable li ul {
+				display: none;
+				padding-left: 20px;
+				margin-top: 5px;
+			}
+
+			.expandable li.active > ul {
+				display: block;
+			}
+
+			.expandable li a {
+				color: #fff;
+				text-decoration: none;
+				display: block;
+				margin-left: 10px;
+				padding: 4px 0;
+			}
+
+				.expandable li a:hover {
+					color: #000;
+				}
+
+		/* Layout fix */
+		.clearfix::after {
+			content: "";
+			display: block;
+			clear: both;
+		}
+
+		/* Footer */
+		#footer {
+			width: 960px;
+			margin: 0 auto;
+			padding: 15px 0 30px 0;
+			border-top: 1px solid #292929;
+			text-align: center;
+			color: #444;
+			font-size: 12px;
+		}
+
+			#footer a {
+				color: #444;
+			}
+	</style>
+
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			const items = document.querySelectorAll(".expandable li.has-sub");
+			items.forEach(item => {
+				item.addEventListener("click", function (e) {
+					e.stopPropagation();
+					this.classList.toggle("active");
+				});
+			});
+		});
+	</script>
+</head>
+
+<body>
+	<div id="wrapper">
+		<div id="logo">
+			<a href="index.html"><img src="images/Periltek-Logo.png" alt="Periltek Designs Logo" /></a>
+		</div>
+
+		<div id="menu">
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="news.html">News</a></li>
+				<li><a href="projects.html">Projects</a></li>
+				<li><a href="about.html">About</a></li>
+				<li class="current_page_item"><a href="devlog.html">Devlog</a></li>
+				<li><a href="contact.html">Contact</a></li>
+			</ul>
+		</div>
+
+		<div id="three-columns">
+			<div id="column1">
+				<h2>Latest Updates</h2>
+				<p>Stay informed on development milestones, newly added features, and behind-the-scenes breakthroughs across all of Periltek’s active projects.</p>
+				<p><a href="#latest" class="link-style">Read Updates</a></p>
+			</div>
+			<div id="column2">
+				<h2>Beta Testing</h2>
+				<p>Learn about upcoming beta tests, public participation opportunities, and closed test environments for titles like <strong>The Red</strong> and <strong>Camp Red</strong>.</p>
+				<p><a href="#beta" class="link-style">View Notes</a></p>
+			</div>
+			<div id="column3">
+				<h2>Team Insights</h2>
+				<p>Go inside the design process with commentary from Periltek’s developers, artists, and system engineers — our creative heartbeat.</p>
+				<p><a href="#team" class="link-style">Meet the Team</a></p>
+			</div>
+		</div>
+
+		<div id="welcome">
+			<h2 class="title"><a href="#">The Periltek Devlog</a></h2>
+			<div class="entry">
+				<p>This section of our site provides transparency into our ongoing development process — featuring update reports, technical notes, and direct team perspectives.</p>
+			</div>
+		</div>
+
+		<div id="page" class="clearfix">
+			<div id="content">
+				<div class="post">
+					<h2 class="title"><a href="#">Development Log Entries</a></h2>
+					<div class="entry">
+						<h3 id="latest">Latest Updates</h3>
+						<p>Recent milestones include a complete overhaul of <strong>The Red – RRG Mobile</strong> UI framework, improved asset streaming for <strong>Camp Red</strong>, and the finalized design pipeline for <strong>Rapid Red</strong>’s vehicle physics system.</p>
+						<p>We’ve also launched internal builds for <strong>Deep Red</strong>, focusing on atmospheric rendering and terrain persistence. <strong>The Darkening</strong> pre-production assets are now being shaped to define tone and scale.</p>
+
+						<h3 id="beta">Beta Testing Notes</h3>
+						<p>Our next testing phase centers around <strong>The Red</strong> — early access participants will soon receive a public beta notification via our <a href="contact.html">contact portal</a>. Feedback channels will remain open through the integrated in-app feedback system.</p>
+						<p>For <strong>Camp Red</strong>, core system tests are progressing through closed network builds, ensuring proper synchronization and world state integrity before the open beta.</p>
+
+						<h3 id="team">Team Insights</h3>
+						<p>At Periltek Designs, every project stems from passion. Our small but dedicated team works in modular units — design, simulation, network, and narrative. Collaboration tools built in-house help us rapidly iterate and maintain creative flow.</p>
+						<p>As we expand, expect more frequent “micro-devlogs” featuring deeper dives into how we merge art, code, and storytelling into unified experiences.</p>
+					</div>
+				</div>
+			</div>
+
+			<div id="sidebar" class="expandable">
+				<ul>
+					<li class="has-sub active">
+						Devlog
+						<ul>
+							<li><a href="devlog.html#latest">Latest Updates</a></li>
+							<li><a href="devlog.html#beta">Beta Testing Notes</a></li>
+							<li><a href="devlog.html#team">Team Insights</a></li>
+						</ul>
+					</li>
+					<li class="has-sub">
+						Projects
+						<ul>
+							<li><a href="projects.html#thered">The Red – RRG Mobile</a></li>
+							<li><a href="projects.html#campred">Camp Red & Expansions</a></li>
+							<li><a href="projects.html#anarchy404">Anarchy 404</a></li>
+						</ul>
+					</li>
+					<li class="has-sub">
+						Media
+						<ul>
+							<li><a href="media.html#screenshots">Screenshots</a></li>
+							<li><a href="media.html#concept">Concept Art</a></li>
+							<li><a href="media.html#photos">Team Photos</a></li>
+						</ul>
+					</li>
+					<li><a href="contact.html">Contact & Support</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div id="footer">
+		<p>&copy; 2025 Periltek Designs. All rights reserved. Design framework adapted from <a href="https://templated.live/naturalprime/" target="_blank" rel="nofollow">Natural Prime</a>.</p>
+	</div>
+</body>
+</html>

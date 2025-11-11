@@ -1,0 +1,260 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+		  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta name="keywords" content="Periltek Designs news, game dev updates, indie studio announcements, The Red, RRG Mobile" />
+	<meta name="description" content="Stay up to date with Periltek Designs — news, development logs, and project updates for The Red: RRG Mobile and more." />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Periltek Designs | News & Updates</title>
+	<link href="http://fonts.googleapis.com/css?family=Abel" rel="stylesheet" type="text/css" />
+
+	<style type="text/css">
+		body, html {
+			margin: 0;
+			padding: 0;
+			font-family: 'Abel', sans-serif;
+			background: #0E0E0E;
+			color: #fff;
+		}
+
+		a {
+			text-decoration: none;
+			color: #FF7637;
+		}
+
+			a:hover {
+				text-decoration: underline;
+			}
+
+		#wrapper {
+			width: 960px;
+			margin: 0 auto;
+			position: relative;
+			min-height: 100vh;
+		}
+
+			#wrapper::before {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: url('images/PTCity.jpg') no-repeat center top;
+				background-size: cover;
+				opacity: 0.05;
+				z-index: 0;
+			}
+
+			#wrapper > * {
+				position: relative;
+				z-index: 1;
+			}
+
+		#logo {
+			width: 150px;
+			height: 150px;
+			margin: 20px auto;
+			text-align: center;
+		}
+
+			#logo img {
+				width: 150px;
+				height: 150px;
+			}
+
+		#menu {
+			width: 960px;
+			margin: 0 auto;
+			padding: 20px 0;
+			border-top: 1px solid #292929;
+			border-bottom: 1px solid #292929;
+		}
+
+			#menu ul {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				text-align: center;
+			}
+
+			#menu li {
+				display: inline-block;
+				border-right: 1px solid #292929;
+			}
+
+				#menu li:last-child {
+					border-right: none;
+				}
+
+			#menu a {
+				display: block;
+				padding: 0 40px;
+				font-size: 20px;
+				color: #FFFFFF;
+			}
+
+				#menu a:hover,
+				#menu .current_page_item a {
+					color: #FF7637;
+				}
+
+		#content {
+			width: 960px;
+			margin: 30px auto;
+			background: rgba(14,14,14,0.8);
+			padding: 30px;
+			border-radius: 10px;
+			box-shadow: 0 0 15px rgba(0,0,0,0.4);
+		}
+
+		h1.title {
+			text-align: center;
+			color: #FF7637;
+			margin-bottom: 30px;
+		}
+
+		.news-item {
+			background: rgba(50,50,50,0.4);
+			border-radius: 10px;
+			margin-bottom: 20px;
+			padding: 15px;
+			cursor: pointer;
+			transition: background 0.3s ease;
+			position: relative;
+		}
+
+			.news-item:hover {
+				background: rgba(255,118,55,0.2);
+			}
+
+			.news-item.active {
+				background: rgba(255,118,55,0.3);
+				border: 1px solid #FF7637;
+			}
+
+			.news-item h2 {
+				font-size: 1.6em;
+				margin: 0;
+				padding-left: 30px;
+				position: relative;
+				color: #fff;
+			}
+
+				.news-item h2::before {
+					content: "(+)";
+					position: absolute;
+					left: 0;
+					color: #FF7637;
+					font-weight: bold;
+				}
+
+			.news-item.active h2::before {
+				content: "(-)";
+			}
+
+		.news-content {
+			display: none;
+			margin-top: 10px;
+			padding-left: 30px;
+			color: #ccc;
+		}
+
+		.news-item.active .news-content {
+			display: block;
+		}
+
+		#footer {
+			width: 960px;
+			margin: 40px auto 0 auto;
+			padding: 15px 0 30px 0;
+			border-top: 1px solid #292929;
+			text-align: center;
+			color: #444;
+			font-size: 12px;
+		}
+
+			#footer a {
+				color: #444;
+			}
+	</style>
+
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			const items = document.querySelectorAll(".news-item");
+			items.forEach(item => {
+				item.addEventListener("click", function () {
+					this.classList.toggle("active");
+				});
+			});
+		});
+	</script>
+</head>
+
+<body>
+	<div id="wrapper">
+		<div id="logo">
+			<a href="index.html"><img src="images/Periltek-Logo.png" alt="Periltek Designs Logo" /></a>
+		</div>
+
+		<div id="menu">
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li class="current_page_item"><a href="news.html">News</a></li>
+				<li><a href="projects.html">Projects</a></li>
+				<li><a href="about.html">About</a></li>
+				<li><a href="devlog.html">Devlog</a></li>
+				<li><a href="contact.html">Contact</a></li>
+			</ul>
+		</div>
+
+		<div id="content">
+			<h1 class="title">News & Updates</h1>
+
+			<div class="news-item">
+				<h2>Launch Preparations for The Red: RRG Mobile</h2>
+				<div class="news-content">
+					<p>The Periltek team has entered the final stretch for <strong>The Red – RRG Mobile</strong>. The upcoming update will introduce refined UI elements, an updated location directory, and enhanced live data handling via our new LiveLink structure.</p>
+					<p>We’re currently focused on memory optimization, crash recovery stability, and expanding service coverage for Red River Gorge points of interest. A release window will be announced soon.</p>
+				</div>
+			</div>
+
+			<div class="news-item">
+				<h2>Periltek Announces Expanded Project Lineup</h2>
+				<div class="news-content">
+					<p>Following the RRG Mobile launch, Periltek Designs is scaling production on new titles under the “Camp Red” universe — including <em>Swift</em>, <em>Rapid Red</em>, <em>Deep Red</em>, and <em>The Darkening</em>.</p>
+					<p>Each title will explore a unique tone and genre within the same shared narrative world — from serene exploration to psychological horror. Expect further teasers in the coming devlogs.</p>
+				</div>
+			</div>
+
+			<div class="news-item">
+				<h2>Behind the Code: A Look Into Periltek’s Design Philosophy</h2>
+				<div class="news-content">
+					<p>At Periltek Designs, design and purpose walk hand-in-hand. Our approach centers on functional artistry — crafting interfaces that not only look sharp but feel intuitive under pressure. Every system is modular, responsive, and built for performance.</p>
+					<p>“When you play or use a Periltek product, you’re part of a living framework that adapts to you,” says Phiber, lead developer and studio architect.</p>
+				</div>
+			</div>
+
+			<div class="news-item">
+				<h2>Inside Anarchy 404 — Beyond the Simulation</h2>
+				<div class="news-content">
+					<p><strong>Anarchy 404</strong> continues to evolve as Periltek’s experimental branch project — a world without order, designed to test AI-based systemic interaction, emergent survival logic, and digital chaos theory. It’s the ultimate simulation of instability — both technological and human.</p>
+					<p>Unlike traditional games, Anarchy 404 uses distributed runtime events and generative behavioral loops to alter its world over time. Development is closely tied to Periltek’s evolving data-layer architecture powering “The Red.”</p>
+				</div>
+			</div>
+
+			<div class="news-item">
+				<h2>Community Integration and Support Framework</h2>
+				<div class="news-content">
+					<p>We’re establishing a dedicated <strong>Community & Support Hub</strong> to streamline communication with users, early testers, and partners. The platform will integrate feedback directly into our live development dashboards.</p>
+					<p>Contact & Support are always available at <a href="contact.html">contact.html</a>.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="footer">
+		<p>&copy; 2025 Periltek Designs. All rights reserved. Design framework by <a href="https://templated.live/naturalprime/" rel="nofollow">TEMPLATED</a>.</p>
+	</div>
+</body>
+</html>
