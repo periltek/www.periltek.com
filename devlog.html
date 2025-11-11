@@ -4,13 +4,12 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<meta name="keywords" content="Periltek Designs, devlog, development updates, beta testing, team insights, indie studio, game development" />
-	<meta name="description" content="Periltek Designs Devlog — featuring latest updates, beta testing notes, and insights from the development team." />
+	<meta name="keywords" content="Periltek Designs, devlog, development updates, beta testing, issue tracker, indie studio, game development" />
+	<meta name="description" content="Periltek Designs Devlog — featuring latest updates, bug tracking, and beta support for ongoing projects." />
 	<title>Periltek Designs | Devlog</title>
 	<link href="http://fonts.googleapis.com/css?family=Abel" rel="stylesheet" type="text/css" />
 
 	<style>
-		/* Core */
 		body, html {
 			margin: 0;
 			padding: 0;
@@ -67,17 +66,14 @@
 				width: 100%;
 				height: auto;
 				display: block;
-				margin: 0 auto;
 			}
 
-		/* Navigation */
+		/* Menu */
 		#menu {
-			overflow: hidden;
-			margin: 0 auto;
+			text-align: center;
 			padding: 20px 0;
 			border-top: 1px solid #292929;
 			border-bottom: 1px solid #292929;
-			text-align: center;
 		}
 
 			#menu ul {
@@ -96,7 +92,6 @@
 				}
 
 			#menu a {
-				display: inline-block;
 				padding: 0 20px;
 				font-size: 16px;
 				color: #fff;
@@ -106,48 +101,7 @@
 					color: #FF7637;
 				}
 
-		/* Three-column top section */
-		#three-columns {
-			overflow: hidden;
-			padding: 30px 0;
-			border-bottom: 1px solid #292929;
-			display: flex;
-			flex-wrap: wrap;
-			justify-content: space-between;
-		}
-
-			#three-columns > div {
-				flex: 1 1 100%;
-				margin-bottom: 20px;
-			}
-
-		@media(min-width:768px) {
-			#three-columns > div {
-				flex: 0 0 30%;
-				margin-bottom: 0;
-			}
-		}
-
-		#three-columns h2 {
-			font-size: 1.8em;
-			color: #FF7637;
-			margin-bottom: 10px;
-		}
-
-		.link-style {
-			display: inline-block;
-			margin-top: 10px;
-			padding: 5px 15px;
-			background: #FF7637;
-			border-radius: 10px;
-			color: #fff;
-		}
-
-			.link-style:hover {
-				background: #ff884e;
-			}
-
-		/* Page content */
+		/* Content layout */
 		#page {
 			display: flex;
 			flex-wrap: wrap;
@@ -163,21 +117,39 @@
 
 		#sidebar {
 			flex: 0 0 280px;
-			padding: 0 0 0 0;
-			box-sizing: border-box;
 			margin-top: 20px;
 		}
 
 		@media(min-width:768px) {
 			#content {
 				flex: 1 1 calc(100% - 300px);
-				margin-top: 0;
 			}
 
 			#sidebar {
 				margin-top: 0;
 			}
 		}
+
+		/* Section blocks */
+		.section {
+			margin-bottom: 40px;
+			background: rgba(30,30,30,0.7);
+			padding: 15px;
+			border-radius: 8px;
+			box-shadow: 0 0 10px rgba(0,0,0,0.3);
+		}
+
+			.section h2 {
+				color: #FF7637;
+				font-size: 1.8em;
+				border-bottom: 1px solid #292929;
+				padding-bottom: 5px;
+				margin-bottom: 10px;
+			}
+
+			.section p {
+				line-height: 1.6em;
+			}
 
 		/* Expandable sidebar */
 		.expandable ul {
@@ -229,18 +201,6 @@
 				display: block;
 			}
 
-			.expandable li a {
-				color: #fff;
-				text-decoration: none;
-				display: block;
-				margin-left: 10px;
-				padding: 4px 0;
-			}
-
-				.expandable li a:hover {
-					color: #000;
-				}
-
 		/* Beta form */
 		#beta-form {
 			display: none;
@@ -280,16 +240,15 @@
 
 	<script>
 		document.addEventListener("DOMContentLoaded", function () {
-			// Expandable sidebar
-			const items = document.querySelectorAll(".expandable li.has-sub");
-			items.forEach(item => {
+			// Expandable sidebar logic
+			document.querySelectorAll(".expandable li.has-sub").forEach(item => {
 				item.addEventListener("click", function (e) {
 					e.stopPropagation();
 					this.classList.toggle("active");
 				});
 			});
 
-			// Beta form password logic
+			// Password-protected Beta Feedback section
 			const submitBtn = document.getElementById("beta-submit");
 			submitBtn.addEventListener("click", async function () {
 				const inputPw = document.getElementById("beta-password").value;
@@ -331,47 +290,58 @@
 			</ul>
 		</div>
 
-		<div id="three-columns">
-			<div id="column1">
-				<h2>Latest Updates</h2>
-				<p>Stay informed on development milestones, newly added features, and behind-the-scenes breakthroughs.</p>
-			</div>
-			<div id="column2">
-				<h2>Beta Testing</h2>
-				<p>Participate in upcoming beta tests for titles like <strong>The Red</strong> and <strong>Camp Red</strong>.</p>
-			</div>
-			<div id="column3">
-				<h2>Team Insights</h2>
-				<p>Go inside the design process with commentary from Periltek’s developers, artists, and system engineers.</p>
-			</div>
-		</div>
-
 		<div id="page">
 			<div id="content">
-				<h2>Beta Feedback & Submissions</h2>
-				<p>Enter the password to access the beta feedback form:</p>
-				<input type="password" id="beta-password" placeholder="Enter Password" />
-				<button id="beta-submit">Submit</button>
-				<div id="beta-error">Invalid password, try again.</div>
+				<!-- Section 1: Dev Logs -->
+				<div class="section" id="devlogs">
+					<h2>Developer Logs</h2>
+					<p>Here you’ll find the latest development updates and progress notes from the Periltek team.</p>
+					<ul>
+						<li><strong>Nov 2025:</strong> Finalized UI scaling adjustments for mobile and tablet devices.</li>
+						<li><strong>Oct 2025:</strong> Integrated JSON data sources for project listings and beta testing systems.</li>
+						<li><strong>Sept 2025:</strong> Completed early alpha milestone for “The Red – RRG Mobile”.</li>
+					</ul>
+				</div>
 
-				<div id="beta-form">
-					<form action="https://formspree.io/f/myzlyjjy" method="POST">
-						<input type="text" name="name" placeholder="Your Name" required=required />
-						<input type="email" name="_replyto" placeholder="Your Email" required=required />
-						<textarea name="message" placeholder="Your Feedback" rows="6" required=required></textarea>
-						<button type="submit">Send Feedback</button>
-					</form>
+				<!-- Section 2: Issue Tracker -->
+				<div class="section" id="issues">
+					<h2>Issue Tracker</h2>
+					<p>Active reports and resolved bugs logged during internal and public beta tests.</p>
+					<ul>
+						<li><strong>Resolved:</strong> UI scaling bug on Android Chrome builds.</li>
+						<li><strong>Open:</strong> Scroll snap desync between menu objects and attached writer components.</li>
+						<li><strong>Monitoring:</strong> Asset load performance during live link JSON updates.</li>
+					</ul>
+				</div>
+
+				<!-- Section 3: Beta Feedback (Password Protected) -->
+				<div class="section" id="beta">
+					<h2>Beta Feedback & Submissions</h2>
+					<p>Enter the password to access the beta feedback form:</p>
+					<input type="password" id="beta-password" placeholder="Enter Password" />
+					<button id="beta-submit">Submit</button>
+					<div id="beta-error">Invalid password, try again.</div>
+
+					<div id="beta-form">
+						<form action="https://formspree.io/f/myzlyjjy" method="POST">
+							<input type="text" name="name" placeholder="Your Name" required=required />
+							<input type="email" name="_replyto" placeholder="Your Email" required=required />
+							<textarea name="message" placeholder="Your Feedback" rows="6" required=required></textarea>
+							<button type="submit">Send Feedback</button>
+						</form>
+					</div>
 				</div>
 			</div>
 
+			<!-- Sidebar -->
 			<div id="sidebar" class="expandable">
 				<ul>
 					<li class="has-sub active">
 						Devlog
 						<ul>
-							<li><a href="devlog.html#latest">Latest Updates</a></li>
-							<li><a href="devlog.html#beta">Beta Testing Notes</a></li>
-							<li><a href="devlog.html#team">Team Insights</a></li>
+							<li><a href="#devlogs">Developer Logs</a></li>
+							<li><a href="#issues">Issue Tracker</a></li>
+							<li><a href="#beta">Beta Feedback</a></li>
 						</ul>
 					</li>
 					<li class="has-sub">
